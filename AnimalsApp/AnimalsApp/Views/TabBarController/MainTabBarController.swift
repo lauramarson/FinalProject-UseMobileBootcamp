@@ -12,11 +12,24 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tabBar.barTintColor = .gray
+        setupTabBar()
     }
 
     func setupTabBar() {
         let homeVC = UINavigationController(rootViewController: HomeViewController())
+        homeVC.tabBarItem.image = .homeTabBar
+        homeVC.tabBarItem.selectedImage = .homeSelectedTabBar
+        
+        let registerVC = UINavigationController(rootViewController: RegisterViewController())
+        registerVC.tabBarItem.image = .registerTabBar
+        registerVC.tabBarItem.selectedImage = .registerSelectedTabBar
+        
+        let favoritesVC = UINavigationController(rootViewController: FavoritesViewController())
+        favoritesVC.tabBarItem.image = .favoritesTabBar
+        favoritesVC.tabBarItem.selectedImage = .favoritesSelectedTabBar
+        
+        viewControllers = [homeVC, registerVC, favoritesVC]
     }
     
 }
