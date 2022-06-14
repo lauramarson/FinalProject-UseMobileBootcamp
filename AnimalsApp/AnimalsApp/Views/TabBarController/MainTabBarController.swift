@@ -18,16 +18,16 @@ class MainTabBarController: UITabBarController {
 
     func setupTabBar() {
         let homeVC = UINavigationController(rootViewController: HomeViewController())
-        homeVC.tabBarItem.image = UIImage(named: "homeBlack")
-        homeVC.tabBarItem.selectedImage = UIImage(named: "homeWhite")
+        homeVC.tabBarItem.image = .homeTabBar
+        homeVC.tabBarItem.selectedImage = .homeSelectedTabBar
         
         let registerVC = UINavigationController(rootViewController: RegisterViewController())
-        registerVC.tabBarItem.image = UIImage(named: "registerTabBar")
-        registerVC.tabBarItem.selectedImage = UIImage(named: "registerTabBar")
+        registerVC.tabBarItem.image = .registerTabBar
+        registerVC.tabBarItem.selectedImage = .registerSelectedTabBar
         
         let favoritesVC = UINavigationController(rootViewController: FavoritesViewController())
-        favoritesVC.tabBarItem.image = UIImage(named: "favoritesTabBar")
-        favoritesVC.tabBarItem.selectedImage = UIImage(named: "favoritesTabBar")
+        favoritesVC.tabBarItem.image = .favoritesTabBar
+        favoritesVC.tabBarItem.selectedImage = .favoritesSelectedTabBar
         
         viewControllers = [homeVC, registerVC, favoritesVC]
     }

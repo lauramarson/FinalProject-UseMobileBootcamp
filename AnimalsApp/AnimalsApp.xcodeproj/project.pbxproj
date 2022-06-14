@@ -25,6 +25,7 @@
 		A463D0582858F62600929A3C /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A463D0562858F62600929A3C /* RegisterViewController.xib */; };
 		A463D05D2858F64B00929A3C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D05B2858F64B00929A3C /* FavoritesViewController.swift */; };
 		A463D05E2858F64B00929A3C /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A463D05C2858F64B00929A3C /* FavoritesViewController.xib */; };
+		A463D06228590D0300929A3C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D06128590D0300929A3C /* Images.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		A463D0562858F62600929A3C /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		A463D05B2858F64B00929A3C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		A463D05C2858F64B00929A3C /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		A463D06128590D0300929A3C /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 		A463D0152858EBBB00929A3C /* AnimalsApp */ = {
 			isa = PBXGroup;
 			children = (
+				A463D06028590CB700929A3C /* DesignSystem */,
 				A463D05F2858F66B00929A3C /* Views */,
 				A463D0162858EBBB00929A3C /* AppDelegate.swift */,
 				A463D0222858EBBD00929A3C /* Assets.xcassets */,
@@ -213,6 +216,14 @@
 				A463D04D2858F46A00929A3C /* TabBarController */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A463D06028590CB700929A3C /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				A463D06128590D0300929A3C /* Images.swift */,
+			);
+			path = DesignSystem;
 			sourceTree = "<group>";
 		};
 		A9C6C33CA0A11D6B033AAEA1 /* Frameworks */ = {
@@ -467,6 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A463D06228590D0300929A3C /* Images.swift in Sources */,
 				A463D0212858EBBB00929A3C /* AnimalsApp.xcdatamodeld in Sources */,
 				A463D0572858F62600929A3C /* RegisterViewController.swift in Sources */,
 				A463D0172858EBBB00929A3C /* AppDelegate.swift in Sources */,
