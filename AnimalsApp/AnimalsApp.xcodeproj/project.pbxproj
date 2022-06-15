@@ -26,6 +26,8 @@
 		A463D05D2858F64B00929A3C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D05B2858F64B00929A3C /* FavoritesViewController.swift */; };
 		A463D05E2858F64B00929A3C /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A463D05C2858F64B00929A3C /* FavoritesViewController.xib */; };
 		A463D06228590D0300929A3C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D06128590D0300929A3C /* Images.swift */; };
+		A463D065285953F900929A3C /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D063285953F900929A3C /* AnimalTableViewCell.swift */; };
+		A463D066285953F900929A3C /* AnimalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A463D064285953F900929A3C /* AnimalTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		A463D05B2858F64B00929A3C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		A463D05C2858F64B00929A3C /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		A463D06128590D0300929A3C /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		A463D063285953F900929A3C /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
+		A463D064285953F900929A3C /* AnimalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,8 @@
 			children = (
 				A463D0512858F60C00929A3C /* HomeViewController.swift */,
 				A463D0522858F60C00929A3C /* HomeViewController.xib */,
+				A463D063285953F900929A3C /* AnimalTableViewCell.swift */,
+				A463D064285953F900929A3C /* AnimalTableViewCell.xib */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 			files = (
 				A463D04C2858F39000929A3C /* MainTabBarController.xib in Resources */,
 				A463D0582858F62600929A3C /* RegisterViewController.xib in Resources */,
+				A463D066285953F900929A3C /* AnimalTableViewCell.xib in Resources */,
 				A463D0262858EBBD00929A3C /* LaunchScreen.storyboard in Resources */,
 				A463D0232858EBBD00929A3C /* Assets.xcassets in Resources */,
 				A463D05E2858F64B00929A3C /* FavoritesViewController.xib in Resources */,
@@ -479,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A463D06228590D0300929A3C /* Images.swift in Sources */,
+				A463D065285953F900929A3C /* AnimalTableViewCell.swift in Sources */,
 				A463D0212858EBBB00929A3C /* AnimalsApp.xcdatamodeld in Sources */,
 				A463D0572858F62600929A3C /* RegisterViewController.swift in Sources */,
 				A463D0172858EBBB00929A3C /* AppDelegate.swift in Sources */,
