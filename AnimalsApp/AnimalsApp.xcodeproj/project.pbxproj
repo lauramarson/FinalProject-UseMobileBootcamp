@@ -26,9 +26,11 @@
 		A463D05D2858F64B00929A3C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D05B2858F64B00929A3C /* FavoritesViewController.swift */; };
 		A463D05E2858F64B00929A3C /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A463D05C2858F64B00929A3C /* FavoritesViewController.xib */; };
 		A463D06228590D0300929A3C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D06128590D0300929A3C /* Images.swift */; };
-		A463D069285A1A5A00929A3C /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D068285A1A5A00929A3C /* WebServices.swift */; };
 		A463D065285953F900929A3C /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D063285953F900929A3C /* AnimalTableViewCell.swift */; };
 		A463D066285953F900929A3C /* AnimalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A463D064285953F900929A3C /* AnimalTableViewCell.xib */; };
+		A463D069285A1A5A00929A3C /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D068285A1A5A00929A3C /* WebServices.swift */; };
+		A463D06D285A22D200929A3C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D06B285A22D200929A3C /* DetailViewController.swift */; };
+		A463D06E285A22D300929A3C /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A463D06C285A22D200929A3C /* DetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,9 +80,11 @@
 		A463D05B2858F64B00929A3C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		A463D05C2858F64B00929A3C /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		A463D06128590D0300929A3C /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
-		A463D068285A1A5A00929A3C /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
 		A463D063285953F900929A3C /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
 		A463D064285953F900929A3C /* AnimalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalTableViewCell.xib; sourceTree = "<group>"; };
+		A463D068285A1A5A00929A3C /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
+		A463D06B285A22D200929A3C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A463D06C285A22D200929A3C /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +223,7 @@
 		A463D05F2858F66B00929A3C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A463D06A285A22AF00929A3C /* DetailViewController */,
 				A463D0502858F4DE00929A3C /* FavoritesViewController */,
 				A463D04F2858F49600929A3C /* RegisterViewController */,
 				A463D04E2858F47C00929A3C /* HomeViewController */,
@@ -241,6 +246,15 @@
 				A463D068285A1A5A00929A3C /* WebServices.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		A463D06A285A22AF00929A3C /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A463D06B285A22D200929A3C /* DetailViewController.swift */,
+				A463D06C285A22D200929A3C /* DetailViewController.xib */,
+			);
+			path = DetailViewController;
 			sourceTree = "<group>";
 		};
 		A9C6C33CA0A11D6B033AAEA1 /* Frameworks */ = {
@@ -365,6 +379,7 @@
 				A463D04C2858F39000929A3C /* MainTabBarController.xib in Resources */,
 				A463D0582858F62600929A3C /* RegisterViewController.xib in Resources */,
 				A463D066285953F900929A3C /* AnimalTableViewCell.xib in Resources */,
+				A463D06E285A22D300929A3C /* DetailViewController.xib in Resources */,
 				A463D0262858EBBD00929A3C /* LaunchScreen.storyboard in Resources */,
 				A463D0232858EBBD00929A3C /* Assets.xcassets in Resources */,
 				A463D05E2858F64B00929A3C /* FavoritesViewController.xib in Resources */,
@@ -503,6 +518,7 @@
 				A463D0172858EBBB00929A3C /* AppDelegate.swift in Sources */,
 				A463D04B2858F39000929A3C /* MainTabBarController.swift in Sources */,
 				A463D05D2858F64B00929A3C /* FavoritesViewController.swift in Sources */,
+				A463D06D285A22D200929A3C /* DetailViewController.swift in Sources */,
 				A463D069285A1A5A00929A3C /* WebServices.swift in Sources */,
 				A463D0532858F60C00929A3C /* HomeViewController.swift in Sources */,
 			);
