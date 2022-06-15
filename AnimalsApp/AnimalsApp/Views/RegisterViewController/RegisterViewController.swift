@@ -41,11 +41,21 @@ class RegisterViewController: UIViewController {
     }
     
     private func setupUI() {
-        textFieldName.layer.cornerRadius = 10
-        textFieldImageLink.layer.cornerRadius = 10
-        textFieldDescription.layer.cornerRadius = 10
-        textFieldSpecie.layer.cornerRadius = 10
-        textFieldAge.layer.cornerRadius = 10
+        [textFieldName, textFieldImageLink, textFieldDescription, textFieldSpecie, textFieldAge].forEach { textField in
+            textField?.layer.cornerRadius = 8
+            textField?.layer.borderWidth = 1
+            textField?.layer.borderColor = UIColor.systemGray.cgColor
+            textField?.layer.masksToBounds = true
+        }
+        
+        let attributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.systemGray
+        ]
+        textFieldName.attributedPlaceholder = NSAttributedString(string: "Nome", attributes:attributes)
+        textFieldImageLink.attributedPlaceholder = NSAttributedString(string: "Link da imagem", attributes:attributes)
+        textFieldDescription.attributedPlaceholder = NSAttributedString(string: "Descrição", attributes:attributes)
+        textFieldSpecie.attributedPlaceholder = NSAttributedString(string: "Espécie", attributes:attributes)
+        textFieldAge.attributedPlaceholder = NSAttributedString(string: "Idade", attributes:attributes)
         buttonRegister.layer.cornerRadius = 10
     }
 }
