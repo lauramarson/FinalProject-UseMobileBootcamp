@@ -26,6 +26,7 @@
 		A463D05D2858F64B00929A3C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D05B2858F64B00929A3C /* FavoritesViewController.swift */; };
 		A463D05E2858F64B00929A3C /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A463D05C2858F64B00929A3C /* FavoritesViewController.xib */; };
 		A463D06228590D0300929A3C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D06128590D0300929A3C /* Images.swift */; };
+		A463D069285A1A5A00929A3C /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D068285A1A5A00929A3C /* WebServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		A463D05B2858F64B00929A3C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		A463D05C2858F64B00929A3C /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		A463D06128590D0300929A3C /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		A463D068285A1A5A00929A3C /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		A463D0152858EBBB00929A3C /* AnimalsApp */ = {
 			isa = PBXGroup;
 			children = (
+				A463D067285A1A4300929A3C /* Services */,
 				A463D06028590CB700929A3C /* DesignSystem */,
 				A463D05F2858F66B00929A3C /* Views */,
 				A463D0162858EBBB00929A3C /* AppDelegate.swift */,
@@ -224,6 +227,14 @@
 				A463D06128590D0300929A3C /* Images.swift */,
 			);
 			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		A463D067285A1A4300929A3C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A463D068285A1A5A00929A3C /* WebServices.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		A9C6C33CA0A11D6B033AAEA1 /* Frameworks */ = {
@@ -484,6 +495,7 @@
 				A463D0172858EBBB00929A3C /* AppDelegate.swift in Sources */,
 				A463D04B2858F39000929A3C /* MainTabBarController.swift in Sources */,
 				A463D05D2858F64B00929A3C /* FavoritesViewController.swift in Sources */,
+				A463D069285A1A5A00929A3C /* WebServices.swift in Sources */,
 				A463D0532858F60C00929A3C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
