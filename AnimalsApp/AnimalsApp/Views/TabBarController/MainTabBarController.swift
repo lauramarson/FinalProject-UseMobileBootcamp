@@ -11,25 +11,39 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tabBar.barTintColor = .gray
+        
+        setupViewControllers()
         setupTabBar()
     }
 
-    func setupTabBar() {
+    func setupViewControllers() {
+        
         let homeVC = UINavigationController(rootViewController: HomeViewController())
-        homeVC.tabBarItem.image = .homeTabBar
-        homeVC.tabBarItem.selectedImage = .homeSelectedTabBar
+        homeVC.tabBarItem = UITabBarItem(title: "Home", image: .homeTabBar, selectedImage: .homeSelectedTabBar)
         
         let registerVC = UINavigationController(rootViewController: RegisterViewController())
-        registerVC.tabBarItem.image = .registerTabBar
-        registerVC.tabBarItem.selectedImage = .registerSelectedTabBar
+        registerVC.tabBarItem = UITabBarItem(title: "Cadastrar", image: .registerTabBar, selectedImage: .registerSelectedTabBar)
         
         let favoritesVC = UINavigationController(rootViewController: FavoritesViewController())
-        favoritesVC.tabBarItem.image = .favoritesTabBar
-        favoritesVC.tabBarItem.selectedImage = .favoritesSelectedTabBar
+        favoritesVC.tabBarItem = UITabBarItem(title: "Favoritos", image: .favoritesTabBar, selectedImage: .favoritesSelectedTabBar)
         
         viewControllers = [homeVC, registerVC, favoritesVC]
+    }
+    
+    func setupTabBar() {
+        let tabBarAppearance = UITabBarAppearance()
+        let tabBarItemAppearance = UITabBarItemAppearance()
+
+        tabBarItemAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        tabBarItemAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
+        tabBarAppearance.stackedLayoutAppearance = tabBarItemAppearance
+        tabBarAppearance.backgroundColor = UIColor(named: "blueTabBarColor")
+
+        tabBar.standardAppearance = tabBarAppearance
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = tabBarAppearance
+        }
     }
     
 }
