@@ -8,22 +8,44 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
-
+    // MARK: Properties
+    
+    // MARK: Outlets
+    @IBOutlet weak var textFieldName: UITextField!
+    @IBOutlet weak var textFieldImageLink: UITextField!
+    @IBOutlet weak var textFieldDescription: UITextField!
+    @IBOutlet weak var textFieldSpecie: UITextField!
+    @IBOutlet weak var textFieldAge: UITextField!
+    @IBOutlet weak var buttonRegister: UIButton!
+    
+    // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .green
+        setupUI()
+        setNavigationItens()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
-    */
-
+    
+    // MARK: Actions
+    @IBAction func handlerButtonRegister(_ sender: Any) {
+        
+    }
+    
+    // MARK: Methods
+    private func setNavigationItens() {
+        title = "Cadastrar"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "blueTabBarColor") ?? ""]
+    }
+    
+    private func setupUI() {
+        textFieldName.layer.cornerRadius = 10
+        textFieldImageLink.layer.cornerRadius = 10
+        textFieldDescription.layer.cornerRadius = 10
+        textFieldSpecie.layer.cornerRadius = 10
+        textFieldAge.layer.cornerRadius = 10
+        buttonRegister.layer.cornerRadius = 10
+    }
 }
