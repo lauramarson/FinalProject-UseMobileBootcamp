@@ -31,6 +31,9 @@
 		A463D069285A1A5A00929A3C /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D068285A1A5A00929A3C /* WebServices.swift */; };
 		A463D06D285A22D200929A3C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D06B285A22D200929A3C /* DetailViewController.swift */; };
 		A463D06E285A22D300929A3C /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A463D06C285A22D200929A3C /* DetailViewController.xib */; };
+		A463D071285A373800929A3C /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D070285A373700929A3C /* Animals.swift */; };
+		A463D074285A398900929A3C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D073285A398900929A3C /* HomeViewModel.swift */; };
+		A463D078285A5A8000929A3C /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A463D077285A5A8000929A3C /* OpenSans-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		A463D068285A1A5A00929A3C /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
 		A463D06B285A22D200929A3C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A463D06C285A22D200929A3C /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		A463D070285A373700929A3C /* Animals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
+		A463D073285A398900929A3C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A463D077285A5A8000929A3C /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +159,11 @@
 		A463D0152858EBBB00929A3C /* AnimalsApp */ = {
 			isa = PBXGroup;
 			children = (
+				A463D076285A59B500929A3C /* Resources */,
 				A463D067285A1A4300929A3C /* Services */,
 				A463D06028590CB700929A3C /* DesignSystem */,
+				A463D06F285A371F00929A3C /* Models */,
+				A463D072285A396C00929A3C /* View Models */,
 				A463D05F2858F66B00929A3C /* Views */,
 				A463D0162858EBBB00929A3C /* AppDelegate.swift */,
 				A463D0222858EBBD00929A3C /* Assets.xcassets */,
@@ -194,10 +203,9 @@
 		A463D04E2858F47C00929A3C /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A463D075285A580400929A3C /* Components */,
 				A463D0512858F60C00929A3C /* HomeViewController.swift */,
 				A463D0522858F60C00929A3C /* HomeViewController.xib */,
-				A463D063285953F900929A3C /* AnimalTableViewCell.swift */,
-				A463D064285953F900929A3C /* AnimalTableViewCell.xib */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -255,6 +263,39 @@
 				A463D06C285A22D200929A3C /* DetailViewController.xib */,
 			);
 			path = DetailViewController;
+			sourceTree = "<group>";
+		};
+		A463D06F285A371F00929A3C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A463D070285A373700929A3C /* Animals.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A463D072285A396C00929A3C /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				A463D073285A398900929A3C /* HomeViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		A463D075285A580400929A3C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A463D063285953F900929A3C /* AnimalTableViewCell.swift */,
+				A463D064285953F900929A3C /* AnimalTableViewCell.xib */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A463D076285A59B500929A3C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A463D077285A5A8000929A3C /* OpenSans-Regular.ttf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A9C6C33CA0A11D6B033AAEA1 /* Frameworks */ = {
@@ -383,6 +424,7 @@
 				A463D0262858EBBD00929A3C /* LaunchScreen.storyboard in Resources */,
 				A463D0232858EBBD00929A3C /* Assets.xcassets in Resources */,
 				A463D05E2858F64B00929A3C /* FavoritesViewController.xib in Resources */,
+				A463D078285A5A8000929A3C /* OpenSans-Regular.ttf in Resources */,
 				A463D0542858F60C00929A3C /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,7 +558,9 @@
 				A463D0212858EBBB00929A3C /* AnimalsApp.xcdatamodeld in Sources */,
 				A463D0572858F62600929A3C /* RegisterViewController.swift in Sources */,
 				A463D0172858EBBB00929A3C /* AppDelegate.swift in Sources */,
+				A463D071285A373800929A3C /* Animals.swift in Sources */,
 				A463D04B2858F39000929A3C /* MainTabBarController.swift in Sources */,
+				A463D074285A398900929A3C /* HomeViewModel.swift in Sources */,
 				A463D05D2858F64B00929A3C /* FavoritesViewController.swift in Sources */,
 				A463D06D285A22D200929A3C /* DetailViewController.swift in Sources */,
 				A463D069285A1A5A00929A3C /* WebServices.swift in Sources */,
