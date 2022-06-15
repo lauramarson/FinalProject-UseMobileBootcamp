@@ -24,14 +24,14 @@
                             <constraint firstAttribute="width" constant="50" id="kcM-BZ-81T"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="687-rn-Ydp">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="687-rn-Ydp">
                         <rect key="frame" x="277" y="22.5" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="7rZ-bg-lFP"/>
                             <constraint firstAttribute="width" constant="15" id="i65-df-ED5"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="addFavorite"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="addFavorite"/>
                     </button>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="fsl-xq-9yj">
                         <rect key="frame" x="70" y="11" width="57" height="38.5"/>

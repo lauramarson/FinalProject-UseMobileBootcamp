@@ -27,7 +27,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Animal") as? AnimalTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Animal", for: indexPath) as? AnimalTableViewCell else {
             return UITableViewCell()
         }
         
@@ -37,5 +37,15 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("entrou")
+        let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
+
+//        let book = booksCollectionVM.modelAt(indexPath.row)
+//        dvc.detailVM = DetailBookViewModel(book: book)
+
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
     
 }
