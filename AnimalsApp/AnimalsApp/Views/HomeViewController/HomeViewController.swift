@@ -37,6 +37,8 @@ class HomeViewController: UIViewController {
             NSAttributedString.Key.font: UIFont(name: "OpenSans", size: 20) ?? UIFont.systemFont(ofSize: 20)]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        
+        navigationItem.backButtonTitle = ""
     }
     
     private func populateTableView() {
@@ -70,12 +72,13 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("entrou")
         let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
         
         //continuar
 
         navigationController?.pushViewController(detailVC, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
