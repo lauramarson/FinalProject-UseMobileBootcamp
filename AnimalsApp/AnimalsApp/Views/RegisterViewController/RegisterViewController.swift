@@ -6,9 +6,18 @@
 //
 
 import UIKit
+import Alamofire
 
 class RegisterViewController: UIViewController {
     // MARK: Properties
+    var registerVM = RegisterViewModel()
+    var parameters: [String: Any] = [
+        "name": "",
+        "description": "",
+        "age": 0,
+        "specie": "",
+        "image": ""
+    ]
     
     // MARK: Outlets
     @IBOutlet weak var textFieldName: UITextField!
@@ -31,7 +40,8 @@ class RegisterViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func handlerButtonRegister(_ sender: Any) {
-        
+        setParameters()
+        registerVM.registerAnimal(with: parameters)
     }
     
     // MARK: Methods
@@ -48,14 +58,20 @@ class RegisterViewController: UIViewController {
             textField?.layer.masksToBounds = true
         }
         
-        let attributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.systemGray
-        ]
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.systemGray]
         textFieldName.attributedPlaceholder = NSAttributedString(string: "Nome", attributes:attributes)
         textFieldImageLink.attributedPlaceholder = NSAttributedString(string: "Link da imagem", attributes:attributes)
         textFieldDescription.attributedPlaceholder = NSAttributedString(string: "Descrição", attributes:attributes)
         textFieldSpecie.attributedPlaceholder = NSAttributedString(string: "Espécie", attributes:attributes)
         textFieldAge.attributedPlaceholder = NSAttributedString(string: "Idade", attributes:attributes)
         buttonRegister.layer.cornerRadius = 10
+    }
+    
+    private func setParameters() {
+        parameters["name"] = textFieldName.text
+        parameters["description"] = textFieldDescription.text
+        parameters["age"] = Int(textFieldAge.text ?? "0")
+        parameters["specie"] = textFieldSpecie.text
+        parameters["image"] = textFieldImageLink.text
     }
 }
