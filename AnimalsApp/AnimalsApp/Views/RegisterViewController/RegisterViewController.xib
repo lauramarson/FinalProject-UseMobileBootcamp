@@ -46,7 +46,7 @@
                                                                 <constraint firstAttribute="height" constant="56" id="zQR-K7-ZE5"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                         </textField>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Link da imagem" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xF5-Gv-lri">
                                                             <rect key="frame" x="0.0" y="81" width="388" height="56"/>
@@ -55,7 +55,7 @@
                                                                 <constraint firstAttribute="height" constant="56" id="eD1-EJ-ECA"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
@@ -71,7 +71,7 @@
                                                                 <constraint firstAttribute="height" constant="56" id="aIE-KD-e76"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                         </textField>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Espécie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rD2-wq-owE">
                                                             <rect key="frame" x="0.0" y="81" width="388" height="56"/>
@@ -80,7 +80,7 @@
                                                                 <constraint firstAttribute="height" constant="56" id="FNP-bJ-jHT"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
@@ -99,7 +99,7 @@
                                                                 <constraint firstAttribute="height" constant="56" id="liL-v1-2oa"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                                         </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgQ-5e-alS">
                                                             <rect key="frame" x="0.0" y="81" width="388" height="59"/>
