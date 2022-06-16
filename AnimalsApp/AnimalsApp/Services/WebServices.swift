@@ -32,7 +32,7 @@ class WebServices: WebServicesContract {
     }
     
     func registerAnimal(with parameters: [String: Any]) {
-        AF.request(urlString, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 200 ..< 299).responseData { response in
+        AF.request(endpoint, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 200 ..< 299).responseData { response in
                 switch response.result {
                     case .success(let data):
                         do {
