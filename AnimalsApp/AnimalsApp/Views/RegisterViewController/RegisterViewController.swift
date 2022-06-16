@@ -32,10 +32,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setNavigationItens()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        delegateTextField()
     }
     
     // MARK: Actions
@@ -73,5 +70,21 @@ class RegisterViewController: UIViewController {
         parameters["age"] = Int(textFieldAge.text ?? "0")
         parameters["specie"] = textFieldSpecie.text
         parameters["image"] = textFieldImageLink.text
+    }
+    
+    private func delegateTextField() {
+        textFieldAge.delegate = self
+        textFieldName.delegate = self
+        textFieldDescription.delegate = self
+        textFieldSpecie.delegate = self
+        textFieldImageLink.delegate = self
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+    }
+}
+
+extension RegisterViewController: UIGestureRecognizerDelegate, UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
