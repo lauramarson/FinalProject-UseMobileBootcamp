@@ -21,6 +21,7 @@ struct Animal: Codable {
     let created_at: String
     var updated_at: String
     var isFavorite: Bool? = false
+    var imageData: Data?
 }
 
 extension Animal {

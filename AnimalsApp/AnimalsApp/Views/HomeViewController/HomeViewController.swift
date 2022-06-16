@@ -27,7 +27,6 @@ class HomeViewController: UIViewController {
         
         tableView.register(UINib(nibName: "AnimalTableViewCell", bundle: nil), forCellReuseIdentifier: "Animal")
         
-        
         setNavigationItems()
         populateTableView()
         

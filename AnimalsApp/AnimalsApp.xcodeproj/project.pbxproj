@@ -34,6 +34,7 @@
 		A463D071285A373800929A3C /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D070285A373700929A3C /* Animals.swift */; };
 		A463D074285A398900929A3C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D073285A398900929A3C /* HomeViewModel.swift */; };
 		A463D078285A5A8000929A3C /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A463D077285A5A8000929A3C /* OpenSans-Regular.ttf */; };
+		A463D07C285B9B6300929A3C /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D07B285B9B6300929A3C /* CoreData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		A463D070285A373700929A3C /* Animals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
 		A463D073285A398900929A3C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A463D077285A5A8000929A3C /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		A463D07B285B9B6300929A3C /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +171,6 @@
 				A463D0222858EBBD00929A3C /* Assets.xcassets */,
 				A463D0242858EBBD00929A3C /* LaunchScreen.storyboard */,
 				A463D0272858EBBD00929A3C /* Info.plist */,
-				A463D01F2858EBBB00929A3C /* AnimalsApp.xcdatamodeld */,
 			);
 			path = AnimalsApp;
 			sourceTree = "<group>";
@@ -252,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				A463D068285A1A5A00929A3C /* WebServices.swift */,
+				A463D07B285B9B6300929A3C /* CoreData.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -268,6 +270,7 @@
 		A463D06F285A371F00929A3C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A463D01F2858EBBB00929A3C /* AnimalsApp.xcdatamodeld */,
 				A463D070285A373700929A3C /* Animals.swift */,
 			);
 			path = Models;
@@ -554,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A463D06228590D0300929A3C /* Images.swift in Sources */,
+				A463D07C285B9B6300929A3C /* CoreData.swift in Sources */,
 				A463D065285953F900929A3C /* AnimalTableViewCell.swift in Sources */,
 				A463D0212858EBBB00929A3C /* AnimalsApp.xcdatamodeld in Sources */,
 				A463D0572858F62600929A3C /* RegisterViewController.swift in Sources */,
