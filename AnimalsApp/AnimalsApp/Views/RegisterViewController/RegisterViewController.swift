@@ -31,7 +31,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setNavigationItens()
+        setNavigationItems()
         delegateTextField()
     }
     
@@ -42,9 +42,16 @@ class RegisterViewController: UIViewController {
     }
     
     // MARK: Methods
-    private func setNavigationItens() {
+    private func setNavigationItems() {
         title = "Cadastrar"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "blueTabBarColor") ?? ""]
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.blueTextColor ?? UIColor.blue,
+            NSAttributedString.Key.font: UIFont(name: "OpenSans", size: 20) ?? UIFont.systemFont(ofSize: 20)]
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
     }
     
     private func setupUI() {
