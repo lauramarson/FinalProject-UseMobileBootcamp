@@ -6,14 +6,10 @@
 //
 
 import UIKit
-import Combine
 
 class HomeViewController: UIViewController {
     
     let homeVM = HomeViewModel()
-    
-    let homeVM2 = HomeViewModel2()
-    var bag = Set<AnyCancellable>()
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
@@ -27,39 +23,20 @@ class HomeViewController: UIViewController {
         
         tableView.register(UINib(nibName: "AnimalTableViewCell", bundle: nil), forCellReuseIdentifier: "Animal")
         
-        
         setNavigationItems()
         populateTableView()
-        
-        homeVM2.$viewState
-            .receive(on: DispatchQueue.main)
-            .sink { value in
-                switch value {
-                    
-                case .idle:
-                    break
-                case .loading:
-                    // show indicator
-                    break
-                case .error(_):
-                    // show error view
-                    break
-                case .loaded(_):
-                    self.tableView.reloadData()
-                }
-            }.store(in: &bag)
-            
-        
     }
     
     private func setNavigationItems() {
+        title = "Home"
+        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
+        appearance.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.blueTextColor ?? UIColor.blue,
+            NSAttributedString.Key.font: UIFont(name: "OpenSans", size: 20) ?? UIFont.systemFont(ofSize: 20)]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
-        
-        title = "Home"
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "blueTextColor") as Any]
     }
     
     private func populateTableView() {
