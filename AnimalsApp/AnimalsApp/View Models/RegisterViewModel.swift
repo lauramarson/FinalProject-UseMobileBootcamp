@@ -14,7 +14,9 @@ struct RegisterViewModel {
         self.webServices = webServices
     }
     
-    func registerAnimal(with parameters: [String: Any]) {
-        webServices.registerAnimal(with: parameters)
+    func registerAnimal(with parameters: [String: Any], handler: @escaping (() -> Void)) {
+        webServices.registerAnimal(with: parameters) {
+            handler()
+        }
     }
 }

@@ -11,7 +11,7 @@ import Alamofire
 protocol WebServicesContract: AnyObject {
     var endpoint: String { get }
     func fetchAnimals(completion: @escaping (Result<[Animal], Error>) -> ())
-    func registerAnimal(with parameters: [String: Any])
+    func registerAnimal(with parameters: [String: Any], handler: @escaping (() -> Void))
 }
 
 class WebServices: WebServicesContract {
@@ -31,10 +31,11 @@ class WebServices: WebServicesContract {
             }
     }
     
-    func registerAnimal(with parameters: [String: Any]) {
+    func registerAnimal(with parameters: [String: Any], handler: @escaping (() -> Void)) {
         AF.request(endpoint, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 200 ..< 299).responseData { response in
                 switch response.result {
                     case .success(let data):
+                    handler()
                         do {
                             guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
                                 print("Error: Cannot convert data to JSON object")
@@ -55,6 +56,7 @@ class WebServices: WebServicesContract {
                             return
                         }
                     case .failure(let error):
+                    handler()
                         print(error)
                 }
             }
