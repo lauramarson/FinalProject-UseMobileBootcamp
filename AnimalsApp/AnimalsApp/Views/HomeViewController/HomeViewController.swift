@@ -9,11 +9,14 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    // MARK: Properties
     let homeVM = HomeViewModel()
     
+    // MARK: Outlets
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     
+    // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingView.startAnimating()
@@ -24,9 +27,17 @@ class HomeViewController: UIViewController {
         tableView.register(UINib(nibName: "AnimalTableViewCell", bundle: nil), forCellReuseIdentifier: "Animal")
         
         setNavigationItems()
+
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(reloadAnimals), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         populateTableView()
     }
     
+    // MARK: Methods
     private func setNavigationItems() {
         title = "Home"
         
@@ -49,8 +60,15 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    @objc
+    private func reloadAnimals(refreshControl: UIRefreshControl) {
+        populateTableView()
+        refreshControl.endRefreshing()
+    }
 }
 
+// MARK: TableView Data Source
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return homeVM.numberOfRows()
@@ -69,6 +87,7 @@ extension HomeViewController: UITableViewDataSource {
 
 }
 
+// MARK: TableView Delegate
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
