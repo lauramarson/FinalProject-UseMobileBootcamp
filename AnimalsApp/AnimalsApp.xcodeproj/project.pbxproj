@@ -36,6 +36,7 @@
 		A463D074285A398900929A3C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D073285A398900929A3C /* HomeViewModel.swift */; };
 		A463D078285A5A8000929A3C /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A463D077285A5A8000929A3C /* OpenSans-Regular.ttf */; };
 		A463D07A285B8D8E00929A3C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D079285B8D8D00929A3C /* Colors.swift */; };
+		A463D07E285CF28200929A3C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D07D285CF28200929A3C /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		A463D073285A398900929A3C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A463D077285A5A8000929A3C /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		A463D079285B8D8D00929A3C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		A463D07D285CF28200929A3C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 			children = (
 				A463D06128590D0300929A3C /* Images.swift */,
 				A463D079285B8D8D00929A3C /* Colors.swift */,
+				A463D07D285CF28200929A3C /* String.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				5CA996F8285A98FB00FF5D79 /* RegisterViewModel.swift in Sources */,
 				A463D05D2858F64B00929A3C /* FavoritesViewController.swift in Sources */,
 				A463D06D285A22D200929A3C /* DetailViewController.swift in Sources */,
+				A463D07E285CF28200929A3C /* String.swift in Sources */,
 				A463D069285A1A5A00929A3C /* WebServices.swift in Sources */,
 				A463D0532858F60C00929A3C /* HomeViewController.swift in Sources */,
 			);
