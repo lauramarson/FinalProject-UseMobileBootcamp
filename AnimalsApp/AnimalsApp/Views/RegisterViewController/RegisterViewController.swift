@@ -11,13 +11,6 @@ import Alamofire
 class RegisterViewController: UIViewController {
     // MARK: Properties
     var registerVM = RegisterViewModel()
-    var parameters: [String: Any] = [
-        "name": "",
-        "description": "",
-        "age": 0,
-        "specie": "",
-        "image": ""
-    ]
     
     // MARK: Outlets
     @IBOutlet weak var textFieldName: UITextField!
@@ -39,13 +32,16 @@ class RegisterViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func handlerButtonRegister(_ sender: Any) {
-        if textFieldName.text == "" || textFieldImageLink.text == "" || textFieldDescription.text == "" || textFieldSpecie.text == "" || textFieldAge.text == "" {
+        guard let name = textFieldName.text?.testIfIsEmpty(),
+              let description = textFieldDescription.text?.testIfIsEmpty(),
+              let age = Int(textFieldAge.text ?? ""),
+              let species = textFieldSpecie.text?.testIfIsEmpty(),
+              let image = textFieldImageLink.text?.testIfIsEmpty() else {
             showAlerts(alertTitle: "Erro", alertMessage: "Preencha todos os dados")
-            return
-        }
+            return }
+              
         activityIndicator.startAnimating()
-        setParameters()
-        registerVM.registerAnimal(with: parameters) {
+        registerVM.registerAnimal(name: name, description: description, age: age, species: species, image: image) {
             self.activityIndicator.stopAnimating()
         }
     }
@@ -78,14 +74,6 @@ class RegisterViewController: UIViewController {
         textFieldSpecie.attributedPlaceholder = NSAttributedString(string: "Espécie", attributes:attributes)
         textFieldAge.attributedPlaceholder = NSAttributedString(string: "Idade", attributes:attributes)
         buttonRegister.layer.cornerRadius = 10
-    }
-    
-    private func setParameters() {
-        parameters["name"] = textFieldName.text
-        parameters["description"] = textFieldDescription.text
-        parameters["age"] = Int(textFieldAge.text ?? "0")
-        parameters["specie"] = textFieldSpecie.text
-        parameters["image"] = textFieldImageLink.text
     }
     
     private func delegateTextField() {

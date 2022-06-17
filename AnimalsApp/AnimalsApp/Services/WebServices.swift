@@ -11,7 +11,7 @@ import Alamofire
 protocol WebServicesContract: AnyObject {
     var endpoint: String { get }
     func fetchAnimals(completion: @escaping (Result<[Animal], Error>) -> ())
-    func registerAnimal(with parameters: [String: Any], handler: @escaping (() -> Void))
+    func registerAnimal(with parameters: Animal, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 class WebServices: WebServicesContract {
@@ -31,34 +31,18 @@ class WebServices: WebServicesContract {
             }
     }
     
-    func registerAnimal(with parameters: [String: Any], handler: @escaping (() -> Void)) {
-        AF.request(endpoint, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 200 ..< 299).responseData { response in
-                switch response.result {
-                    case .success(let data):
-                    handler()
-                        do {
-                            guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-                                print("Error: Cannot convert data to JSON object")
-                                return
-                            }
-                            guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
-                                print("Error: Cannot convert JSON object to Pretty JSON data")
-                                return
-                            }
-                            guard let prettyPrintedJson = String(data: prettyJsonData, encoding: .utf8) else {
-                                print("Error: Could print JSON in String")
-                                return
-                            }
-
-                            print(prettyPrintedJson)
-                        } catch {
-                            print("Error: Trying to convert JSON data to string")
-                            return
-                        }
-                    case .failure(let error):
-                    handler()
-                        print(error)
-                }
+    func registerAnimal(with parameters: Animal, completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        AF.request(endpoint,
+                   method: .post,
+                   parameters: parameters,
+                   encoder: JSONParameterEncoder.default).response { response in
+            switch response.result {
+            case .success:
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
             }
+        }
     }
 }
