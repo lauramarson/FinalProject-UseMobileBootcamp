@@ -24,6 +24,13 @@ class HomeViewController: UIViewController {
         tableView.register(UINib(nibName: "AnimalTableViewCell", bundle: nil), forCellReuseIdentifier: "Animal")
         
         setNavigationItems()
+
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(reloadAnimals), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         populateTableView()
     }
     
@@ -48,6 +55,12 @@ class HomeViewController: UIViewController {
                 self?.loadingView.stopAnimating()
             }
         }
+    }
+    
+    @objc
+    private func reloadAnimals(refreshControl: UIRefreshControl) {
+        populateTableView()
+        refreshControl.endRefreshing()
     }
 }
 
