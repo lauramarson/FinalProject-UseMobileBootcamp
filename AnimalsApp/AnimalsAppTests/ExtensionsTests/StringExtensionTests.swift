@@ -1,14 +1,13 @@
 //
-//  AnimalsAppTests.swift
+//  StringExtensionTests.swift
 //  AnimalsAppTests
 //
-//  Created by Laura Pinheiro Marson on 14/06/22.
+//  Created by Laura Pinheiro Marson on 17/06/22.
 //
 
 import XCTest
-@testable import AnimalsApp
 
-class AnimalsAppTests: XCTestCase {
+class StringExtensionTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
