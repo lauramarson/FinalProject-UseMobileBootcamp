@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="AnimalsApp" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="hKh-ih-WLW" id="udD-CU-nbq"/>
                 <outlet property="buttonRegister" destination="IgQ-5e-alS" id="L9L-mM-03l"/>
                 <outlet property="textFieldAge" destination="8vc-1n-XQI" id="ttV-kf-O7h"/>
                 <outlet property="textFieldDescription" destination="Jyn-Gz-FpY" id="34R-ts-wvz"/>
@@ -136,13 +137,20 @@
                                                 <constraint firstAttribute="trailing" secondItem="rPO-OE-UhZ" secondAttribute="trailing" id="yPe-15-Y6Q"/>
                                             </constraints>
                                         </view>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="hKh-ih-WLW">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="bId-Di-cZ3" secondAttribute="trailing" constant="13" id="9kb-aZ-MA4"/>
                                         <constraint firstAttribute="height" constant="800" id="CVi-Hk-f0s"/>
+                                        <constraint firstAttribute="trailing" secondItem="hKh-ih-WLW" secondAttribute="trailing" id="DQ4-gJ-4jp"/>
                                         <constraint firstItem="bId-Di-cZ3" firstAttribute="top" secondItem="uTn-FQ-xzf" secondAttribute="top" constant="25" id="M0E-Yg-F60"/>
+                                        <constraint firstItem="hKh-ih-WLW" firstAttribute="leading" secondItem="uTn-FQ-xzf" secondAttribute="leading" id="SDo-4A-TMh"/>
+                                        <constraint firstItem="hKh-ih-WLW" firstAttribute="top" secondItem="uTn-FQ-xzf" secondAttribute="top" id="Xrg-G9-Y1B"/>
                                         <constraint firstItem="bId-Di-cZ3" firstAttribute="leading" secondItem="uTn-FQ-xzf" secondAttribute="leading" constant="13" id="cIf-rj-wPi"/>
+                                        <constraint firstAttribute="bottom" secondItem="hKh-ih-WLW" secondAttribute="bottom" id="tBu-Rc-bEL"/>
                                     </constraints>
                                 </view>
                             </subviews>

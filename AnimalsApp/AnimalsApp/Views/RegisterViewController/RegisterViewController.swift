@@ -26,6 +26,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var textFieldSpecie: UITextField!
     @IBOutlet weak var textFieldAge: UITextField!
     @IBOutlet weak var buttonRegister: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Overrides
     override func viewDidLoad() {
@@ -33,12 +34,20 @@ class RegisterViewController: UIViewController {
         setupUI()
         setNavigationItems()
         delegateTextField()
+        activityIndicator.hidesWhenStopped = true
     }
     
     // MARK: Actions
     @IBAction func handlerButtonRegister(_ sender: Any) {
+        if textFieldName.text == "" || textFieldImageLink.text == "" || textFieldDescription.text == "" || textFieldSpecie.text == "" || textFieldAge.text == "" {
+            showAlerts(alertTitle: "Erro", alertMessage: "Preencha todos os dados")
+            return
+        }
+        activityIndicator.startAnimating()
         setParameters()
-        registerVM.registerAnimal(with: parameters)
+        registerVM.registerAnimal(with: parameters) {
+            self.activityIndicator.stopAnimating()
+        }
     }
     
     // MARK: Methods
@@ -86,6 +95,12 @@ class RegisterViewController: UIViewController {
         textFieldSpecie.delegate = self
         textFieldImageLink.delegate = self
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+    }
+    
+    private func showAlerts(alertTitle: String?, alertMessage: String?) {
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
     }
 }
 
