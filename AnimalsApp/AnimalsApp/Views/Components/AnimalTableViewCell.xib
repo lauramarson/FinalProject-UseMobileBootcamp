@@ -31,12 +31,11 @@
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="687-rn-Ydp">
-                        <rect key="frame" x="247" y="33" width="40" height="30"/>
+                        <rect key="frame" x="247" y="28" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="7rZ-bg-lFP"/>
+                            <constraint firstAttribute="height" constant="40" id="7rZ-bg-lFP"/>
                             <constraint firstAttribute="width" constant="40" id="i65-df-ED5"/>
                         </constraints>
-                        <inset key="imageEdgeInsets" minX="35" minY="0.0" maxX="35" maxY="0.0"/>
                         <state key="normal" image="addFavorite"/>
                         <connections>
                             <action selector="favoritePressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="X9N-Mv-iRU"/>
@@ -85,10 +84,10 @@
         <image name="addFavorite" width="22.5" height="21.5"/>
         <image name="imagePlaceholder" width="300" height="300"/>
         <namedColor name="blueTextColor">
-            <color red="0.082352941176470587" green="0.54509803921568623" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.082000002264976501" green="0.54500001668930054" blue="0.74900001287460327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="grayTextColor">
-            <color red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

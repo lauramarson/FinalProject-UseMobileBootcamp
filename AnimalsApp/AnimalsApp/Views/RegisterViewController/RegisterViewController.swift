@@ -10,16 +10,17 @@ import Alamofire
 
 class RegisterViewController: UIViewController {
     // MARK: Properties
-    var registerVM = RegisterViewModel()
+    private var registerVM = RegisterViewModel()
     
     // MARK: Outlets
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldImageLink: UITextField!
     @IBOutlet weak var textFieldDescription: UITextField!
     @IBOutlet weak var textFieldSpecie: UITextField!
     @IBOutlet weak var textFieldAge: UITextField!
     @IBOutlet weak var buttonRegister: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+//    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Overrides
     override func viewDidLoad() {
@@ -27,22 +28,25 @@ class RegisterViewController: UIViewController {
         setupUI()
         setNavigationItems()
         delegateTextField()
-        activityIndicator.hidesWhenStopped = true
+        notificationCenter()
+//        activityIndicator.hidesWhenStopped = true
     }
     
     // MARK: Actions
     @IBAction func handlerButtonRegister(_ sender: Any) {
+        
         guard let name = textFieldName.text?.testIfIsEmpty(),
               let description = textFieldDescription.text?.testIfIsEmpty(),
               let age = Int(textFieldAge.text ?? ""),
               let species = textFieldSpecie.text?.testIfIsEmpty(),
               let image = textFieldImageLink.text?.testIfIsEmpty() else {
-            showAlerts(alertTitle: "Erro", alertMessage: "Preencha todos os dados")
+            showAlerts(alertTitle: "Erro", alertMessage: "Preencha todos os campos")
             return }
               
-        activityIndicator.startAnimating()
+//        activityIndicator.startAnimating()
         registerVM.registerAnimal(name: name, description: description, age: age, species: species, image: image) {
-            self.activityIndicator.stopAnimating()
+//            self.activityIndicator.stopAnimating()
+            print("oi")
         }
     }
     
@@ -63,16 +67,16 @@ class RegisterViewController: UIViewController {
         [textFieldName, textFieldImageLink, textFieldDescription, textFieldSpecie, textFieldAge].forEach { textField in
             textField?.layer.cornerRadius = 8
             textField?.layer.borderWidth = 1
-            textField?.layer.borderColor = UIColor.systemGray.cgColor
+            textField?.layer.borderColor = UIColor.grayCellFrame?.cgColor
             textField?.layer.masksToBounds = true
         }
         
-        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.systemGray]
-        textFieldName.attributedPlaceholder = NSAttributedString(string: "Nome", attributes:attributes)
-        textFieldImageLink.attributedPlaceholder = NSAttributedString(string: "Link da imagem", attributes:attributes)
-        textFieldDescription.attributedPlaceholder = NSAttributedString(string: "Descrição", attributes:attributes)
-        textFieldSpecie.attributedPlaceholder = NSAttributedString(string: "Espécie", attributes:attributes)
-        textFieldAge.attributedPlaceholder = NSAttributedString(string: "Idade", attributes:attributes)
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.grayTextColor ?? UIColor.systemGray, NSAttributedString.Key.font: UIFont(name: "OpenSans", size: 16) ?? UIFont.systemFont(ofSize: 16)]
+        textFieldName.attributedPlaceholder = NSAttributedString(string: "  Nome", attributes: attributes)
+        textFieldImageLink.attributedPlaceholder = NSAttributedString(string: "  Link da imagem", attributes: attributes)
+        textFieldDescription.attributedPlaceholder = NSAttributedString(string: "  Descrição", attributes: attributes)
+        textFieldSpecie.attributedPlaceholder = NSAttributedString(string: "  Espécie", attributes: attributes)
+        textFieldAge.attributedPlaceholder = NSAttributedString(string: "  Idade", attributes: attributes)
         buttonRegister.layer.cornerRadius = 10
     }
     
@@ -89,6 +93,27 @@ class RegisterViewController: UIViewController {
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true)
+    }
+    
+    private func notificationCenter() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = .zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+        }
+
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
     }
 }
 
