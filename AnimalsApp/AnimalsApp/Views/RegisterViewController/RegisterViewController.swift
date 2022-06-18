@@ -6,56 +6,120 @@
 //
 
 import UIKit
+import Alamofire
 
 class RegisterViewController: UIViewController {
     // MARK: Properties
+    private var registerVM = RegisterViewModel()
     
     // MARK: Outlets
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldImageLink: UITextField!
     @IBOutlet weak var textFieldDescription: UITextField!
     @IBOutlet weak var textFieldSpecie: UITextField!
     @IBOutlet weak var textFieldAge: UITextField!
     @IBOutlet weak var buttonRegister: UIButton!
+//    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setNavigationItens()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        setNavigationItems()
+        delegateTextField()
+        notificationCenter()
+//        activityIndicator.hidesWhenStopped = true
     }
     
     // MARK: Actions
     @IBAction func handlerButtonRegister(_ sender: Any) {
         
+        guard let name = textFieldName.text?.testIfIsEmpty(),
+              let description = textFieldDescription.text?.testIfIsEmpty(),
+              let age = Int(textFieldAge.text ?? ""),
+              let species = textFieldSpecie.text?.testIfIsEmpty(),
+              let image = textFieldImageLink.text?.testIfIsEmpty() else {
+            showAlerts(alertTitle: "Erro", alertMessage: "Preencha todos os campos")
+            return }
+              
+//        activityIndicator.startAnimating()
+        registerVM.registerAnimal(name: name, description: description, age: age, species: species, image: image) {
+//            self.activityIndicator.stopAnimating()
+            print("oi")
+        }
     }
     
     // MARK: Methods
-    private func setNavigationItens() {
+    private func setNavigationItems() {
         title = "Cadastrar"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "blueTabBarColor") ?? ""]
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.blueTextColor ?? UIColor.blue,
+            NSAttributedString.Key.font: UIFont(name: "OpenSans", size: 20) ?? UIFont.systemFont(ofSize: 20)]
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
     }
     
     private func setupUI() {
         [textFieldName, textFieldImageLink, textFieldDescription, textFieldSpecie, textFieldAge].forEach { textField in
             textField?.layer.cornerRadius = 8
             textField?.layer.borderWidth = 1
-            textField?.layer.borderColor = UIColor.systemGray.cgColor
+            textField?.layer.borderColor = UIColor.grayCellFrame?.cgColor
             textField?.layer.masksToBounds = true
         }
         
-        let attributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.systemGray
-        ]
-        textFieldName.attributedPlaceholder = NSAttributedString(string: "Nome", attributes:attributes)
-        textFieldImageLink.attributedPlaceholder = NSAttributedString(string: "Link da imagem", attributes:attributes)
-        textFieldDescription.attributedPlaceholder = NSAttributedString(string: "Descrição", attributes:attributes)
-        textFieldSpecie.attributedPlaceholder = NSAttributedString(string: "Espécie", attributes:attributes)
-        textFieldAge.attributedPlaceholder = NSAttributedString(string: "Idade", attributes:attributes)
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.grayTextColor ?? UIColor.systemGray, NSAttributedString.Key.font: UIFont(name: "OpenSans", size: 16) ?? UIFont.systemFont(ofSize: 16)]
+        textFieldName.attributedPlaceholder = NSAttributedString(string: "  Nome", attributes: attributes)
+        textFieldImageLink.attributedPlaceholder = NSAttributedString(string: "  Link da imagem", attributes: attributes)
+        textFieldDescription.attributedPlaceholder = NSAttributedString(string: "  Descrição", attributes: attributes)
+        textFieldSpecie.attributedPlaceholder = NSAttributedString(string: "  Espécie", attributes: attributes)
+        textFieldAge.attributedPlaceholder = NSAttributedString(string: "  Idade", attributes: attributes)
         buttonRegister.layer.cornerRadius = 10
+    }
+    
+    private func delegateTextField() {
+        textFieldAge.delegate = self
+        textFieldName.delegate = self
+        textFieldDescription.delegate = self
+        textFieldSpecie.delegate = self
+        textFieldImageLink.delegate = self
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+    }
+    
+    private func showAlerts(alertTitle: String?, alertMessage: String?) {
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
+    }
+    
+    private func notificationCenter() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = .zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+        }
+
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
+    }
+}
+
+extension RegisterViewController: UIGestureRecognizerDelegate, UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

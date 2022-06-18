@@ -12,16 +12,27 @@ struct Animals: Codable {
 }
 
 struct Animal: Codable {
-    let id: String
-    let name: String?
-    let description: String?
-    let age: Int?
-    let species: String?
-    let image: String?
-    let created_at: String
-    var updated_at: String
+    var id: String?
+    var name: String?
+    var description: String?
+    var age: Int?
+    var species: String?
+    var image: String?
+    var createdAt: String?
+    var updatedAt: String?
     var isFavorite: Bool? = false
     var imageData: Data?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case description
+        case age
+        case species
+        case image
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+    }
 }
 
 extension Animal {

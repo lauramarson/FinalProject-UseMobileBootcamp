@@ -46,6 +46,10 @@ class AnimalTableViewCell: UITableViewCell {
         
         self.descriptionLabel.text = animal.description
         
+        self.animalImage.layer.cornerRadius = 10
+        self.animalImage.layer.borderWidth = 0.5
+        self.animalImage.layer.borderColor = UIColor.lightGray?.cgColor
+        
         let imageURL = animal.imageURL
         let placeholderImage = UIImage.imagePlaceHolder
 

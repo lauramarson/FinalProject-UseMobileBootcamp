@@ -38,7 +38,7 @@ class MainTabBarController: UITabBarController {
         tabBarItemAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
         tabBarAppearance.stackedLayoutAppearance = tabBarItemAppearance
-        tabBarAppearance.backgroundColor = UIColor(named: "blueTabBarColor")
+        tabBarAppearance.backgroundColor = UIColor.blueTabBarColor
 
         tabBar.standardAppearance = tabBarAppearance
         if #available(iOS 15.0, *) {
