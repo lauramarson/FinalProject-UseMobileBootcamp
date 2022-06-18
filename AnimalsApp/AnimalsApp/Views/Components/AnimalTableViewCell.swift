@@ -44,10 +44,14 @@ class AnimalTableViewCell: UITableViewCell {
         self.animalImage.layer.borderWidth = 0.5
         self.animalImage.layer.borderColor = UIColor.lightGray?.cgColor
         
-        let imageURL = animal.imageURL
-        let placeholderImage = UIImage.imagePlaceHolder
+        if let imageData = animal.imageData {
+            animalImage.image = UIImage(data: imageData)
+        } else {
+            let imageURL = animal.imageURL
+            let placeholderImage = UIImage.imagePlaceHolder
 
-        animalImage.sd_setImage(with: imageURL, placeholderImage: placeholderImage)
+            animalImage.sd_setImage(with: imageURL, placeholderImage: placeholderImage)
+        }
         
         animal.isFavorite ?? false ? favoriteButton.setImage(.favorite, for: .normal) : favoriteButton.setImage(.notFavorite, for: .normal)
     }
