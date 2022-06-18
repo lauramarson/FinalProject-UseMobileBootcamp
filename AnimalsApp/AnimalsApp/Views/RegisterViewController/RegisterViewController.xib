@@ -9,9 +9,15 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="AnimalsApp" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="ksy-aq-ngY" id="40E-Lw-8uq"/>
                 <outlet property="buttonRegister" destination="IgQ-5e-alS" id="L9L-mM-03l"/>
                 <outlet property="scrollView" destination="N6J-fj-czs" id="h1p-Eq-CBb"/>
                 <outlet property="textFieldAge" destination="8vc-1n-XQI" id="ttV-kf-O7h"/>
@@ -67,13 +73,12 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgQ-5e-alS">
                                             <rect key="frame" x="0.0" y="425" width="349" height="60"/>
                                             <color key="backgroundColor" name="purpleButtonColor"/>
+                                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Cadastrar" showsActivityIndicator="YES">
-                                                <fontDescription key="titleFontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
-                                                <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
-                                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </buttonConfiguration>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Cadastrar">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
                                             <connections>
                                                 <action selector="handlerButtonRegister:" destination="-1" eventType="touchUpInside" id="y9D-zl-zk3"/>
                                             </connections>
@@ -102,11 +107,18 @@
                                 <constraint firstItem="aHz-3L-Vgj" firstAttribute="leading" secondItem="uTn-FQ-xzf" secondAttribute="leading" constant="13" id="xRd-jr-jgx"/>
                             </constraints>
                         </view>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ksy-aq-ngY">
+                            <rect key="frame" x="230" y="465" width="20" height="20"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </activityIndicatorView>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="uTn-FQ-xzf" secondAttribute="trailing" id="BJB-RD-aKj"/>
+                        <constraint firstAttribute="bottom" secondItem="ksy-aq-ngY" secondAttribute="bottom" constant="40" id="CuJ-R8-L72"/>
                         <constraint firstItem="uTn-FQ-xzf" firstAttribute="leading" secondItem="N6J-fj-czs" secondAttribute="leading" id="PTA-73-6eZ"/>
                         <constraint firstAttribute="bottom" secondItem="uTn-FQ-xzf" secondAttribute="bottom" id="Q0Y-XA-bKD"/>
+                        <constraint firstAttribute="trailing" secondItem="ksy-aq-ngY" secondAttribute="trailing" constant="125" id="bOI-fY-9mE"/>
                         <constraint firstItem="uTn-FQ-xzf" firstAttribute="centerX" secondItem="N6J-fj-czs" secondAttribute="centerX" id="iOb-6w-6gZ"/>
                         <constraint firstItem="uTn-FQ-xzf" firstAttribute="top" secondItem="N6J-fj-czs" secondAttribute="top" id="xs9-MT-6ho"/>
                     </constraints>

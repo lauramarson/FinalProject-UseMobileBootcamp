@@ -14,5 +14,6 @@ extension UIColor {
     static let grayCellFrame: UIColor? = UIColor(named: "grayCellFrame")
     static let grayTextColor: UIColor? = UIColor(named: "grayTextColor")  
     static let lightGray: UIColor? = UIColor(named: "lightGray")
-   
+    
+    static let purpleButtonColor: UIColor? = UIColor(named: "purpleButtonColor")
 }

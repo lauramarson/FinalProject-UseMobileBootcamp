@@ -20,7 +20,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var textFieldSpecie: UITextField!
     @IBOutlet weak var textFieldAge: UITextField!
     @IBOutlet weak var buttonRegister: UIButton!
-//    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Overrides
     override func viewDidLoad() {
@@ -29,11 +29,14 @@ class RegisterViewController: UIViewController {
         setNavigationItems()
         delegateTextField()
         notificationCenter()
-//        activityIndicator.hidesWhenStopped = true
+        activityIndicator.hidesWhenStopped = true
     }
     
     // MARK: Actions
     @IBAction func handlerButtonRegister(_ sender: Any) {
+        activityIndicator.startAnimating()
+        buttonRegister.backgroundColor = .grayCellFrame
+        buttonRegister.isUserInteractionEnabled = false
         
         guard let name = textFieldName.text?.testIfIsEmpty(),
               let description = textFieldDescription.text?.testIfIsEmpty(),
@@ -43,10 +46,8 @@ class RegisterViewController: UIViewController {
             showAlerts(alertTitle: "Erro", alertMessage: "Preencha todos os campos")
             return }
               
-//        activityIndicator.startAnimating()
-        registerVM.registerAnimal(name: name, description: description, age: age, species: species, image: image) {
-//            self.activityIndicator.stopAnimating()
-            print("oi")
+        registerVM.registerAnimal(name: name, description: description, age: age, species: species, image: image) { [weak self] in
+            self?.registerSucceeded()
         }
     }
     
@@ -72,11 +73,11 @@ class RegisterViewController: UIViewController {
         }
         
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.grayTextColor ?? UIColor.systemGray, NSAttributedString.Key.font: UIFont(name: "OpenSans", size: 16) ?? UIFont.systemFont(ofSize: 16)]
-        textFieldName.attributedPlaceholder = NSAttributedString(string: "  Nome", attributes: attributes)
-        textFieldImageLink.attributedPlaceholder = NSAttributedString(string: "  Link da imagem", attributes: attributes)
-        textFieldDescription.attributedPlaceholder = NSAttributedString(string: "  Descrição", attributes: attributes)
-        textFieldSpecie.attributedPlaceholder = NSAttributedString(string: "  Espécie", attributes: attributes)
-        textFieldAge.attributedPlaceholder = NSAttributedString(string: "  Idade", attributes: attributes)
+        textFieldName.attributedPlaceholder = NSAttributedString(string: "Nome", attributes: attributes)
+        textFieldImageLink.attributedPlaceholder = NSAttributedString(string: "Link da imagem", attributes: attributes)
+        textFieldDescription.attributedPlaceholder = NSAttributedString(string: "Descrição", attributes: attributes)
+        textFieldSpecie.attributedPlaceholder = NSAttributedString(string: "Espécie", attributes: attributes)
+        textFieldAge.attributedPlaceholder = NSAttributedString(string: "Idade", attributes: attributes)
         buttonRegister.layer.cornerRadius = 10
     }
     
@@ -91,8 +92,22 @@ class RegisterViewController: UIViewController {
     
     private func showAlerts(alertTitle: String?, alertMessage: String?) {
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            self?.activityIndicator.stopAnimating()
+            self?.buttonRegister.isUserInteractionEnabled = true
+            self?.buttonRegister.backgroundColor = .purpleButtonColor
+        })
+                        
         present(alert, animated: true)
+    }
+    
+    private func registerSucceeded() {
+        activityIndicator.stopAnimating()
+        buttonRegister.isUserInteractionEnabled = true
+        buttonRegister.backgroundColor = .purpleButtonColor
+        [textFieldName, textFieldImageLink, textFieldDescription, textFieldSpecie, textFieldAge].forEach { textField in
+            textField?.text = ""
+        }
     }
     
     private func notificationCenter() {
