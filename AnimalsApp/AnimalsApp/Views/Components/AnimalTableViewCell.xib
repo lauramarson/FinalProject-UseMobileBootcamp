@@ -36,7 +36,6 @@
                             <constraint firstAttribute="height" constant="40" id="7rZ-bg-lFP"/>
                             <constraint firstAttribute="width" constant="40" id="i65-df-ED5"/>
                         </constraints>
-                        <state key="normal" image="addFavorite"/>
                         <connections>
                             <action selector="favoritePressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="X9N-Mv-iRU"/>
                         </connections>
@@ -81,13 +80,12 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="addFavorite" width="22.5" height="21.5"/>
         <image name="imagePlaceholder" width="300" height="300"/>
         <namedColor name="blueTextColor">
             <color red="0.082000002264976501" green="0.54500001668930054" blue="0.74900001287460327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="grayTextColor">
-            <color red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

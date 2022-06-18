@@ -1,0 +1,49 @@
+//
+//  Items.swift
+//  AnimalsApp
+//
+//  Created by Laura Pinheiro Marson on 15/06/22.
+//
+
+import Foundation
+
+struct Animals: Codable {
+    var items: [Animal]
+}
+
+struct Animal: Codable {
+    var id: String?
+    var name: String?
+    var description: String?
+    var age: Int?
+    var species: String?
+    var image: String?
+    var createdAt: String?
+    var updatedAt: String?
+    var isFavorite: Bool? = false
+<<<<<<< HEAD
+    var imageData: Data?
+=======
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case description
+        case age
+        case species
+        case image
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+    }
+>>>>>>> develop
+}
+
+extension Animal {
+    
+    var imageURL: URL {
+        guard let imageURL = URL(string: self.image ?? "") else {
+            return URL(fileURLWithPath: "")
+        }
+        return imageURL
+    }
+}

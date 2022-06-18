@@ -8,25 +8,19 @@
 import UIKit
 import SDWebImage
 
+protocol ActionDelegateProtocol: AnyObject {
+    func favoriteButtonTapped(at index: Int, with image: Data)
+}
+
 class AnimalTableViewCell: UITableViewCell {
+    weak var delegate: ActionDelegateProtocol?
+    var animal: Animal?
+    var index: Int?
 
     @IBOutlet weak var animalImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
-    
-    var animal: Animal?
-    
-//    var isFavorite: Bool? {
-//        didSet {
-//            guard let isFavorite = isFavorite else { return }
-//            if isFavorite {
-//                favoriteButton.imageView?.image = .favorite
-//            } else {
-//                favoriteButton.imageView?.image = .notFavorite
-//            }
-//        }
-//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,11 +49,7 @@ class AnimalTableViewCell: UITableViewCell {
 
         animalImage.sd_setImage(with: imageURL, placeholderImage: placeholderImage)
         
-        if animal.isFavorite ?? false {
-            favoriteButton.setImage(.favorite, for: .normal)
-        } else {
-            favoriteButton.setImage(.notFavorite, for: .normal)
-        }
+        animal.isFavorite ?? false ? favoriteButton.setImage(.favorite, for: .normal) : favoriteButton.setImage(.notFavorite, for: .normal)
     }
     
     @IBAction func favoritePressed(_ sender: UIButton) {
@@ -67,9 +57,15 @@ class AnimalTableViewCell: UITableViewCell {
         
         if animal.isFavorite ?? false {
             sender.setImage(.notFavorite, for: .normal)
+            self.animal?.isFavorite = false
         } else {
             sender.setImage(.favorite, for: .normal)
+            self.animal?.isFavorite = true
+        }
+        
+        if let index = index, let image = SDImageCache.shared.imageFromDiskCache(forKey: animal.imageURL.absoluteString) {
+            let imageData = image.jpegData(compressionQuality: 0.9)
+            delegate?.favoriteButtonTapped(at: index, with: imageData ?? Data())
         }
     }
-    
 }

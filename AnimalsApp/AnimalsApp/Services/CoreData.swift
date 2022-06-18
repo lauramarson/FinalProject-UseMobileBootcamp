@@ -8,7 +8,15 @@
 import UIKit
 import CoreData
 
-class CoreData {
+protocol CoreDataContract: AnyObject {
+    func loadFavoriteAnimals(completion: @escaping () -> ())
+    func isFavorite(id: String) -> Bool
+    func addFavorite(_ animal: Animal)
+    func removeFavorite(id: String)
+    func saveChanges()
+}
+
+class CoreData: CoreDataContract {
     var managedContext: NSManagedObjectContext?
     var favoriteAnimals = [FavoriteAnimal]()
     
@@ -58,17 +66,18 @@ class CoreData {
     func removeFavorite(id: String) {
 
         guard let managedContext = managedContext else { return }
-        
-        var removeAnimal = FavoriteAnimal()
-        
-        for (index, animal) in favoriteAnimals.enumerated() {
+
+        var count = 0
+
+        for animal in favoriteAnimals {
             if animal.id == id {
-                removeAnimal = animal
-                favoriteAnimals.remove(at: index)
+                let removeAnimal = animal
+                favoriteAnimals.remove(at: count)
+                managedContext.delete(removeAnimal)
             }
+            count += 1
         }
-        
-        managedContext.delete(removeAnimal)
+
     }
 
     func saveChanges() {

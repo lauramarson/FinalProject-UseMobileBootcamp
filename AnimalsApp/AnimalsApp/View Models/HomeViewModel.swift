@@ -9,10 +9,12 @@ import Foundation
 
 class HomeViewModel {
     private var webServices: WebServicesContract
+    private var coreData: CoreDataContract
     var animals = [Animal]()
     
-    init(webServices: WebServicesContract = WebServices()) {
+    init(webServices: WebServicesContract = WebServices(), coreData: CoreDataContract = CoreData()) {
         self.webServices = webServices
+        self.coreData = coreData
     }
     
     func numberOfRows() -> Int {
@@ -28,6 +30,7 @@ class HomeViewModel {
             switch result {
             case .success(let animals):
                 self?.handleAnimalResponse(with: animals)
+                self?.setFavorite()
             case .failure(let error):
                 //obs criar alerta
                 print(error.localizedDescription)
@@ -44,5 +47,34 @@ class HomeViewModel {
             }
             return false
         }
+    }
+    
+    //MARK: Core Data Methods
+    
+    private func setFavorite() {
+        for (index, animal) in animals.enumerated() {
+            guard let id = animal.id else { return }
+            animals[index].isFavorite = coreData.isFavorite(id: id)
+        }
+    }
+    
+    func addOrRemoveFavorite(at index: Int, with image: Data) {
+        animals[index].imageData = image
+        
+        guard let isFavorite = animals[index].isFavorite,
+              let id = animals[index].id else { return }
+        isFavorite ? coreData.removeFavorite(id: id) : coreData.addFavorite(animals[index])
+        
+        animals[index].isFavorite = !isFavorite
+    }
+    
+    func loadFavorites(completion: @escaping () -> ()) {
+        coreData.loadFavoriteAnimals {
+            completion()
+        }
+    }
+    
+    func saveChangesInCoreData() {
+        coreData.saveChanges()
     }
 }
