@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 
 protocol CoreDataContract: AnyObject {
+    var favoriteAnimals: [FavoriteAnimal] { get set }
     func loadFavoriteAnimals(completion: @escaping () -> ())
     func isFavorite(id: String) -> Bool
     func addFavorite(_ animal: Animal)
@@ -17,16 +18,16 @@ protocol CoreDataContract: AnyObject {
 }
 
 class CoreData: CoreDataContract {
-    var managedContext: NSManagedObjectContext?
-    static var favoriteAnimals = [FavoriteAnimal]() {
+    static let shared = CoreData()
+    
+    private var managedContext: NSManagedObjectContext?
+    var favoriteAnimals = [FavoriteAnimal]() {
         didSet {
-            notifyChanges?()
+            //completar
         }
     }
     
-    static var notifyChanges: (() -> Void)?
-    
-    init() {
+    private init() {
         managedContext = (UIApplication.shared.delegate as? AppDelegate)?
             .persistentContainer
             .viewContext
@@ -38,7 +39,7 @@ class CoreData: CoreDataContract {
         let fetchRequest: NSFetchRequest<FavoriteAnimal> = FavoriteAnimal.fetchRequest()
 
         do {
-            CoreData.favoriteAnimals = try managedContext.fetch(fetchRequest)
+            self.favoriteAnimals = try managedContext.fetch(fetchRequest)
             completion()
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -47,7 +48,7 @@ class CoreData: CoreDataContract {
 
     func isFavorite(id: String) -> Bool {
         
-        for animal in CoreData.favoriteAnimals {
+        for animal in self.favoriteAnimals {
             if animal.id == id {
                 return true
             }
@@ -66,7 +67,7 @@ class CoreData: CoreDataContract {
         newFavoriteAnimal.descript = animal.description
         newFavoriteAnimal.age = Int32(animal.age ?? 0)
         newFavoriteAnimal.species = animal.species
-        CoreData.favoriteAnimals.append(newFavoriteAnimal)
+        self.favoriteAnimals.append(newFavoriteAnimal)
     }
 
     func removeFavorite(id: String) {
@@ -75,10 +76,10 @@ class CoreData: CoreDataContract {
 
         var count = 0
 
-        for animal in CoreData.favoriteAnimals {
+        for animal in self.favoriteAnimals {
             if animal.id == id {
                 let removeAnimal = animal
-                CoreData.favoriteAnimals.remove(at: count)
+                self.favoriteAnimals.remove(at: count)
                 managedContext.delete(removeAnimal)
             }
             count += 1

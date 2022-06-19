@@ -12,7 +12,7 @@ class HomeViewModel {
     private var coreData: CoreDataContract
     var animals = [Animal]()
     
-    init(webServices: WebServicesContract = WebServices(), coreData: CoreDataContract = CoreData()) {
+    init(webServices: WebServicesContract = WebServices(), coreData: CoreDataContract = CoreData.shared) {
         self.webServices = webServices
         self.coreData = coreData
     }

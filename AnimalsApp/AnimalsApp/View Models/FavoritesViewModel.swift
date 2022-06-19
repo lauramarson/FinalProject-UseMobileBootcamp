@@ -9,14 +9,16 @@ import Foundation
  
 class FavoritesViewModel {
     var favoriteAnimals = [Animal]()
+    let coreData: CoreDataContract
+    
+    init(coreData: CoreDataContract = CoreData.shared) {
+        self.coreData = coreData
+    }
     
     func getFavoriteAnimals(completion: @escaping () -> Void) {
-        let coreDataAnimals = CoreData.favoriteAnimals
-        favoriteAnimals.removeAll(keepingCapacity: true)
-        
-        coreDataAnimals.forEach { favoriteAnimal in
-            let newAnimal = Animal(id: favoriteAnimal.id, name: favoriteAnimal.name, description: favoriteAnimal.descript, age: Int(favoriteAnimal.age), species: favoriteAnimal.species, isFavorite: true, imageData: favoriteAnimal.image)
-            favoriteAnimals.append(newAnimal)
+
+        favoriteAnimals = coreData.favoriteAnimals.map { favoriteAnimal in
+            Animal(id: favoriteAnimal.id, name: favoriteAnimal.name, description: favoriteAnimal.descript, age: Int(favoriteAnimal.age), species: favoriteAnimal.species, isFavorite: true, imageData: favoriteAnimal.image)
         }
         
         completion()
