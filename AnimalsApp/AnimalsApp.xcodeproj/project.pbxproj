@@ -11,6 +11,7 @@
 		56CADB59A535B3ED60380013 /* Pods_AnimalsApp_AnimalsAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E75A013A1B19FF9D2B114B /* Pods_AnimalsApp_AnimalsAppUITests.framework */; };
 		5CA996F8285A98FB00FF5D79 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA996F7285A98FB00FF5D79 /* RegisterViewModel.swift */; };
 		A2A6AE83CC0E1DAC784999B1 /* Pods_AnimalsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 290D574622CE042567539136 /* Pods_AnimalsAppTests.framework */; };
+		A458A086285E58CC0057BC34 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458A085285E58CC0057BC34 /* FavoritesViewModel.swift */; };
 		A463D0172858EBBB00929A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D0162858EBBB00929A3C /* AppDelegate.swift */; };
 		A463D0212858EBBB00929A3C /* AnimalsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A463D01F2858EBBB00929A3C /* AnimalsApp.xcdatamodeld */; };
 		A463D0232858EBBD00929A3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A463D0222858EBBD00929A3C /* Assets.xcassets */; };
@@ -35,8 +36,8 @@
 		A463D071285A373800929A3C /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D070285A373700929A3C /* Animals.swift */; };
 		A463D074285A398900929A3C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D073285A398900929A3C /* HomeViewModel.swift */; };
 		A463D078285A5A8000929A3C /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A463D077285A5A8000929A3C /* OpenSans-Regular.ttf */; };
-		A463D07C285B9B6300929A3C /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D07B285B9B6300929A3C /* CoreData.swift */; };
 		A463D07A285B8D8E00929A3C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D079285B8D8D00929A3C /* Colors.swift */; };
+		A463D07C285B9B6300929A3C /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D07B285B9B6300929A3C /* CoreData.swift */; };
 		A463D07E285CF28200929A3C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D07D285CF28200929A3C /* String.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		81C9DABDE310C2E15910D06C /* Pods-AnimalsAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimalsAppTests.debug.xcconfig"; path = "Target Support Files/Pods-AnimalsAppTests/Pods-AnimalsAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D1DC7AE05F709A3F0E450DA /* Pods_AnimalsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimalsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E75A013A1B19FF9D2B114B /* Pods_AnimalsApp_AnimalsAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimalsApp_AnimalsAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A458A085285E58CC0057BC34 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		A463D0132858EBBB00929A3C /* AnimalsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A463D0162858EBBB00929A3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A463D0202858EBBB00929A3C /* AnimalsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnimalsApp.xcdatamodel; sourceTree = "<group>"; };
@@ -96,8 +98,8 @@
 		A463D070285A373700929A3C /* Animals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
 		A463D073285A398900929A3C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A463D077285A5A8000929A3C /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
-		A463D07B285B9B6300929A3C /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		A463D079285B8D8D00929A3C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		A463D07B285B9B6300929A3C /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		A463D07D285CF28200929A3C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -289,6 +291,7 @@
 			children = (
 				A463D073285A398900929A3C /* HomeViewModel.swift */,
 				5CA996F7285A98FB00FF5D79 /* RegisterViewModel.swift */,
+				A458A085285E58CC0057BC34 /* FavoritesViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				A463D0572858F62600929A3C /* RegisterViewController.swift in Sources */,
 				A463D0172858EBBB00929A3C /* AppDelegate.swift in Sources */,
 				A463D071285A373800929A3C /* Animals.swift in Sources */,
+				A458A086285E58CC0057BC34 /* FavoritesViewModel.swift in Sources */,
 				A463D04B2858F39000929A3C /* MainTabBarController.swift in Sources */,
 				A463D074285A398900929A3C /* HomeViewModel.swift in Sources */,
 				A463D07A285B8D8E00929A3C /* Colors.swift in Sources */,

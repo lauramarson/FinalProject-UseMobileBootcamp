@@ -18,7 +18,13 @@ protocol CoreDataContract: AnyObject {
 
 class CoreData: CoreDataContract {
     var managedContext: NSManagedObjectContext?
-    var favoriteAnimals = [FavoriteAnimal]()
+    static var favoriteAnimals = [FavoriteAnimal]() {
+        didSet {
+            notifyChanges?()
+        }
+    }
+    
+    static var notifyChanges: (() -> Void)?
     
     init() {
         managedContext = (UIApplication.shared.delegate as? AppDelegate)?
@@ -28,11 +34,11 @@ class CoreData: CoreDataContract {
     
     func loadFavoriteAnimals(completion: @escaping () -> ()) {
         guard let managedContext = managedContext else { return }
-        
+
         let fetchRequest: NSFetchRequest<FavoriteAnimal> = FavoriteAnimal.fetchRequest()
 
         do {
-            favoriteAnimals = try managedContext.fetch(fetchRequest)
+            CoreData.favoriteAnimals = try managedContext.fetch(fetchRequest)
             completion()
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -41,7 +47,7 @@ class CoreData: CoreDataContract {
 
     func isFavorite(id: String) -> Bool {
         
-        for animal in favoriteAnimals {
+        for animal in CoreData.favoriteAnimals {
             if animal.id == id {
                 return true
             }
@@ -60,7 +66,7 @@ class CoreData: CoreDataContract {
         newFavoriteAnimal.descript = animal.description
         newFavoriteAnimal.age = Int32(animal.age ?? 0)
         newFavoriteAnimal.species = animal.species
-        self.favoriteAnimals.append(newFavoriteAnimal)
+        CoreData.favoriteAnimals.append(newFavoriteAnimal)
     }
 
     func removeFavorite(id: String) {
@@ -69,10 +75,10 @@ class CoreData: CoreDataContract {
 
         var count = 0
 
-        for animal in favoriteAnimals {
+        for animal in CoreData.favoriteAnimals {
             if animal.id == id {
                 let removeAnimal = animal
-                favoriteAnimals.remove(at: count)
+                CoreData.favoriteAnimals.remove(at: count)
                 managedContext.delete(removeAnimal)
             }
             count += 1
