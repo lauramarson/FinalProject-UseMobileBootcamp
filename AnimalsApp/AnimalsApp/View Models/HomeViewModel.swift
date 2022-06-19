@@ -12,9 +12,10 @@ class HomeViewModel {
     private var coreData: CoreDataContract
     var animals = [Animal]()
     
-    init(webServices: WebServicesContract = WebServices(), coreData: CoreDataContract = CoreData()) {
+    init(webServices: WebServicesContract = WebServices(), coreData: CoreDataContract = CoreData.shared) {
         self.webServices = webServices
         self.coreData = coreData
+        coreData.delegate.append(self)
     }
     
     func numberOfRows() -> Int {
@@ -58,14 +59,16 @@ class HomeViewModel {
         }
     }
     
-    func addOrRemoveFavorite(at index: Int, with image: Data) {
+    func removeFavorite(at index: Int) {
+        guard let id = animals[index].id else { return }
+        coreData.removeFavorite(id: id)
+        animals[index].isFavorite = false
+    }
+    
+    func addFavorite(at index: Int, with image: Data) {
         animals[index].imageData = image
-        
-        guard let isFavorite = animals[index].isFavorite,
-              let id = animals[index].id else { return }
-        isFavorite ? coreData.removeFavorite(id: id) : coreData.addFavorite(animals[index])
-        
-        animals[index].isFavorite = !isFavorite
+        coreData.addFavorite(animals[index])
+        animals[index].isFavorite = true
     }
     
     func loadFavorites(completion: @escaping () -> ()) {
@@ -76,5 +79,11 @@ class HomeViewModel {
     
     func saveChangesInCoreData() {
         coreData.saveChanges()
+    }
+}
+
+extension HomeViewModel: UpdateDelegateProtocol {
+    func updateFavoriteAnimals() {
+//        setFavorite()
     }
 }
