@@ -9,7 +9,8 @@ import UIKit
 import SDWebImage
 
 protocol ActionDelegateProtocol: AnyObject {
-    func favoriteButtonTapped(at index: Int, with image: Data)
+    func addFavoriteTapped(at index: Int, with image: Data)
+    func removeFavoriteTapped(at index: Int)
 }
 
 class AnimalTableViewCell: UITableViewCell {
@@ -57,21 +58,18 @@ class AnimalTableViewCell: UITableViewCell {
     }
     
     @IBAction func favoritePressed(_ sender: UIButton) {
-        guard let animal = animal else { return }
+        guard let animal = animal, let index = index else { return }
         
         if animal.isFavorite ?? false {
             sender.setImage(.notFavorite, for: .normal)
             self.animal?.isFavorite = false
+            delegate?.removeFavoriteTapped(at: index)
         } else {
             sender.setImage(.favorite, for: .normal)
             self.animal?.isFavorite = true
-        }
-        
-        let image = SDImageCache.shared.imageFromDiskCache(forKey: animal.imageURL.absoluteString)
-        
-        if let index = index {
+            let image = SDImageCache.shared.imageFromDiskCache(forKey: animal.imageURL.absoluteString)
             let imageData = image?.jpegData(compressionQuality: 0.9)
-            delegate?.favoriteButtonTapped(at: index, with: imageData ?? Data())
+            delegate?.addFavoriteTapped(at: index, with: imageData ?? Data())
         }
     }
 }

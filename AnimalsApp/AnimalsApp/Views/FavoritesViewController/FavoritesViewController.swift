@@ -86,7 +86,10 @@ extension FavoritesViewController: UITableViewDelegate {
 
 // MARK: Action Delegate Protocol
 extension FavoritesViewController: ActionDelegateProtocol {
-    func favoriteButtonTapped(at index: Int, with image: Data) {
+    func addFavoriteTapped(at index: Int, with image: Data) {
+    }
+    
+    func removeFavoriteTapped(at index: Int) {
         favoritesVM?.removeFavorite(at: index) { [weak self] in
             self?.tableView.reloadData()
         }

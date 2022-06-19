@@ -124,7 +124,11 @@ extension HomeViewController: UITableViewDelegate {
 
 // MARK: Action Delegate Protocol
 extension HomeViewController: ActionDelegateProtocol {
-    func favoriteButtonTapped(at index: Int, with image: Data) {
-        homeVM.addOrRemoveFavorite(at: index, with: image)
-    }    
+    func addFavoriteTapped(at index: Int, with image: Data) {
+        homeVM.addFavorite(at: index, with: image)
+    }
+    
+    func removeFavoriteTapped(at index: Int) {
+        homeVM.removeFavorite(at: index)
+    }   
 }
