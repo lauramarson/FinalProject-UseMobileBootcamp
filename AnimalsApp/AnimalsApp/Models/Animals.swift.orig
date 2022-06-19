@@ -21,7 +21,9 @@ struct Animal: Codable {
     var createdAt: String?
     var updatedAt: String?
     var isFavorite: Bool? = false
+<<<<<<< HEAD
     var imageData: Data?
+=======
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -33,6 +35,7 @@ struct Animal: Codable {
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
+>>>>>>> develop
 }
 
 extension Animal {

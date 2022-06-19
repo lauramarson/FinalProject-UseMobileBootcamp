@@ -27,14 +27,26 @@ class HomeViewController: UIViewController {
         tableView.register(UINib(nibName: "AnimalTableViewCell", bundle: nil), forCellReuseIdentifier: "Animal")
         
         setNavigationItems()
+        homeVM.loadFavorites { [weak self] in
+            self?.populateTableView()
+        }
 
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(reloadAnimals), for: .valueChanged)
         tableView.refreshControl = refreshControl
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(saveChanges), name: UIApplication.willResignActiveNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         populateTableView()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        homeVM.saveChangesInCoreData()
     }
     
     // MARK: Methods
@@ -66,6 +78,11 @@ class HomeViewController: UIViewController {
         populateTableView()
         refreshControl.endRefreshing()
     }
+    
+    @objc
+    private func saveChanges() {
+        homeVM.saveChangesInCoreData()
+    }
 }
 
 // MARK: TableView Data Source
@@ -81,6 +98,8 @@ extension HomeViewController: UITableViewDataSource {
         }
         
         cell.animal = homeVM.modelAt(indexPath.row)
+        cell.index = indexPath.row
+        cell.delegate = self
         cell.configure()
         
         return cell
@@ -101,4 +120,11 @@ extension HomeViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+}
+
+// MARK: Action Delegate Protocol
+extension HomeViewController: ActionDelegateProtocol {
+    func favoriteButtonTapped(at index: Int, with image: Data) {
+        homeVM.addOrRemoveFavorite(at: index, with: image)
+    }    
 }
