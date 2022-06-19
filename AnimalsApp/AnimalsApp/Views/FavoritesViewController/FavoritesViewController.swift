@@ -9,12 +9,13 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
     
-    var favoritesVM = FavoritesViewModel()
+    var favoritesVM: FavoritesViewModel?
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        favoritesVM = FavoritesViewModel()
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -22,11 +23,13 @@ class FavoritesViewController: UIViewController {
         tableView.register(UINib(nibName: "AnimalTableViewCell", bundle: nil), forCellReuseIdentifier: "Animal")
 
         setNavigationItems()
+        favoritesVM?.getFavoriteAnimals { [weak self] in            self?.tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        favoritesVM.getFavoriteAnimals() { [weak self] in            self?.tableView.reloadData()
+        favoritesVM?.getFavoriteAnimals { [weak self] in            self?.tableView.reloadData()
         }
     }
 
@@ -47,7 +50,7 @@ class FavoritesViewController: UIViewController {
 // MARK: TableView Data Source
 extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favoritesVM.numberOfRows()
+        return favoritesVM?.numberOfRows() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +59,7 @@ extension FavoritesViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.animal = favoritesVM.modelAt(indexPath.row)
+        cell.animal = favoritesVM?.modelAt(indexPath.row)
         cell.index = indexPath.row
         cell.delegate = self
         cell.configure()
@@ -84,7 +87,9 @@ extension FavoritesViewController: UITableViewDelegate {
 // MARK: Action Delegate Protocol
 extension FavoritesViewController: ActionDelegateProtocol {
     func favoriteButtonTapped(at index: Int, with image: Data) {
-//        homeVM.addOrRemoveFavorite(at: index, with: image)
+        favoritesVM?.removeFavorite(at: index) { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 }
 

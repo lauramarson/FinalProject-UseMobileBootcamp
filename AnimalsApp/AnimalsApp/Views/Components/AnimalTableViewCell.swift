@@ -67,8 +67,10 @@ class AnimalTableViewCell: UITableViewCell {
             self.animal?.isFavorite = true
         }
         
-        if let index = index, let image = SDImageCache.shared.imageFromDiskCache(forKey: animal.imageURL.absoluteString) {
-            let imageData = image.jpegData(compressionQuality: 0.9)
+        let image = SDImageCache.shared.imageFromDiskCache(forKey: animal.imageURL.absoluteString)
+        
+        if let index = index {
+            let imageData = image?.jpegData(compressionQuality: 0.9)
             delegate?.favoriteButtonTapped(at: index, with: imageData ?? Data())
         }
     }

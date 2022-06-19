@@ -15,6 +15,7 @@ class HomeViewModel {
     init(webServices: WebServicesContract = WebServices(), coreData: CoreDataContract = CoreData.shared) {
         self.webServices = webServices
         self.coreData = coreData
+        coreData.delegate.append(self)
     }
     
     func numberOfRows() -> Int {
@@ -76,5 +77,11 @@ class HomeViewModel {
     
     func saveChangesInCoreData() {
         coreData.saveChanges()
+    }
+}
+
+extension HomeViewModel: UpdateDelegateProtocol {
+    func updateFavoriteAnimals() {
+//        setFavorite()
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 
 protocol CoreDataContract: AnyObject {
+    var delegate: [UpdateDelegateProtocol] { get set }
     var favoriteAnimals: [FavoriteAnimal] { get set }
     func loadFavoriteAnimals(completion: @escaping () -> ())
     func isFavorite(id: String) -> Bool
@@ -26,10 +27,10 @@ class CoreData: CoreDataContract {
     
     private var managedContext: NSManagedObjectContext?
     
-    var delegate: [UpdateDelegateProtocol]?
+    var delegate = [UpdateDelegateProtocol]()
     var favoriteAnimals = [FavoriteAnimal]() {
         didSet {
-            delegate?.forEach { delegate in
+            delegate.forEach { delegate in
                 delegate.updateFavoriteAnimals()
             }
         }
