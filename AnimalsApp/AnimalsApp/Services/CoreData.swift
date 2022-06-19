@@ -17,13 +17,21 @@ protocol CoreDataContract: AnyObject {
     func saveChanges()
 }
 
+protocol UpdateDelegateProtocol: AnyObject {
+    func updateFavoriteAnimals()
+}
+
 class CoreData: CoreDataContract {
     static let shared = CoreData()
     
     private var managedContext: NSManagedObjectContext?
+    
+    var delegate: [UpdateDelegateProtocol]?
     var favoriteAnimals = [FavoriteAnimal]() {
         didSet {
-            //completar
+            delegate?.forEach { delegate in
+                delegate.updateFavoriteAnimals()
+            }
         }
     }
     
