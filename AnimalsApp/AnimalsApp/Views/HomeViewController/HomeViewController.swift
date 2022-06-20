@@ -112,9 +112,11 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
-        
-        //continuar
-
+        let data = homeVM.modelAt(indexPath.row)
+        detailVC.imageViewURL = data.imageURL
+        detailVC.labelNameText = "\(data.name ?? "") - \(data.age ?? 0)"
+        detailVC.labelSpecieText = data.species
+        detailVC.textViewText = data.description
         navigationController?.pushViewController(detailVC, animated: true)
         
         tableView.deselectRow(at: indexPath, animated: true)
