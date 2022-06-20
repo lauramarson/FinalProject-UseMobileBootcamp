@@ -14,6 +14,7 @@
 		A458A086285E58CC0057BC34 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458A085285E58CC0057BC34 /* FavoritesViewModel.swift */; };
 		A458A08C2860BD2D0057BC34 /* Alert+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458A08B2860BD2D0057BC34 /* Alert+UIViewController.swift */; };
 		A458A0922860F7C40057BC34 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = A458A0912860F7C40057BC34 /* success.json */; };
+		A458A094286128FF0057BC34 /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = A458A093286128FF0057BC34 /* empty.json */; };
 		A463D0172858EBBB00929A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D0162858EBBB00929A3C /* AppDelegate.swift */; };
 		A463D0212858EBBB00929A3C /* AnimalsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A463D01F2858EBBB00929A3C /* AnimalsApp.xcdatamodeld */; };
 		A463D0232858EBBD00929A3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A463D0222858EBBD00929A3C /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 		A458A085285E58CC0057BC34 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		A458A08B2860BD2D0057BC34 /* Alert+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+UIViewController.swift"; sourceTree = "<group>"; };
 		A458A0912860F7C40057BC34 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
+		A458A093286128FF0057BC34 /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty.json; sourceTree = "<group>"; };
 		A463D0132858EBBB00929A3C /* AnimalsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A463D0162858EBBB00929A3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A463D0202858EBBB00929A3C /* AnimalsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnimalsApp.xcdatamodel; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				A458A0912860F7C40057BC34 /* success.json */,
+				A458A093286128FF0057BC34 /* empty.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 			files = (
 				A463D04C2858F39000929A3C /* MainTabBarController.xib in Resources */,
 				A463D0582858F62600929A3C /* RegisterViewController.xib in Resources */,
+				A458A094286128FF0057BC34 /* empty.json in Resources */,
 				A463D066285953F900929A3C /* AnimalTableViewCell.xib in Resources */,
 				A463D06E285A22D300929A3C /* DetailViewController.xib in Resources */,
 				A463D0262858EBBD00929A3C /* LaunchScreen.storyboard in Resources */,

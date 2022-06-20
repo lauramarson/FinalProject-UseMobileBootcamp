@@ -11,7 +11,6 @@ import Lottie
 class RegisterViewController: UIViewController {
     // MARK: Properties
     private var registerVM = RegisterViewModel()
-//    private var animationView: AnimationView?
     
     // MARK: Outlets
     @IBOutlet weak var scrollView: UIScrollView!
@@ -138,8 +137,6 @@ class RegisterViewController: UIViewController {
             self?.scrollView.isHidden = false
         }
     }
-    
-    
     
     private func notificationCenter() {
         let notificationCenter = NotificationCenter.default
