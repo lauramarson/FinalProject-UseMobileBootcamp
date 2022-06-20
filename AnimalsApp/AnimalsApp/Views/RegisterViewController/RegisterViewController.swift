@@ -6,11 +6,12 @@
 //
 
 import UIKit
-import Alamofire
+import Lottie
 
 class RegisterViewController: UIViewController {
     // MARK: Properties
     private var registerVM = RegisterViewModel()
+//    private var animationView: AnimationView?
     
     // MARK: Outlets
     @IBOutlet weak var scrollView: UIScrollView!
@@ -21,6 +22,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var textFieldAge: UITextField!
     @IBOutlet weak var buttonRegister: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var successAnimationView: AnimationView!
     
     // MARK: Overrides
     override func viewDidLoad() {
@@ -34,6 +36,7 @@ class RegisterViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func handlerButtonRegister(_ sender: Any) {
+        view.endEditing(true)
         activityIndicator.startAnimating()
         buttonRegister.backgroundColor = .grayCellFrame
         buttonRegister.isUserInteractionEnabled = false
@@ -46,8 +49,22 @@ class RegisterViewController: UIViewController {
             showAlerts(alertTitle: "Erro", alertMessage: "Preencha todos os campos")
             return }
               
-        registerVM.registerAnimal(name: name, description: description, age: age, species: species, image: image) { [weak self] in
-            self?.registerSucceeded()
+        registerVM.registerAnimal(name: name, description: description, age: age, species: species, image: image) { [weak self] (result) in
+            
+            switch result {
+            case .success:
+                self?.setSuccessAnimation()
+                self?.registerSucceeded()
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+                guard let alert = self?.fetchAlert(title: "Oops...", message: "Não foi possível cadastrar o novo animal") else { return }
+                self?.present(alert, animated: true) {
+                    self?.activityIndicator.stopAnimating()
+                    self?.buttonRegister.isUserInteractionEnabled = true
+                    self?.buttonRegister.backgroundColor = .purpleButtonColor
+                }
+            }
         }
     }
     
@@ -109,6 +126,20 @@ class RegisterViewController: UIViewController {
             textField?.text = ""
         }
     }
+    
+    private func setSuccessAnimation() {
+        successAnimationView.isHidden = false
+        successAnimationView.contentMode = .scaleAspectFit
+        successAnimationView.loopMode = .playOnce
+        successAnimationView.animationSpeed = 1
+        scrollView.isHidden = true
+        successAnimationView.play { [weak self] _ in
+            self?.successAnimationView.isHidden = true
+            self?.scrollView.isHidden = false
+        }
+    }
+    
+    
     
     private func notificationCenter() {
         let notificationCenter = NotificationCenter.default

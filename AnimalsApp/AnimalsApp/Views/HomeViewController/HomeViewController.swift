@@ -65,10 +65,20 @@ class HomeViewController: UIViewController {
     }
     
     private func populateTableView() {
-        homeVM.getAllAnimals { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
+        homeVM.getAllAnimals { [weak self] (result) in
+            
+            switch result {
+            case .success():
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                    self?.loadingView.stopAnimating()
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
                 self?.loadingView.stopAnimating()
+                guard let alert = self?.fetchAlert(title: "Oops...", message: "Não foi possível carregar os animais") else { return }
+                self?.present(alert, animated: true)
             }
         }
     }
