@@ -46,8 +46,21 @@ class RegisterViewController: UIViewController {
             showAlerts(alertTitle: "Erro", alertMessage: "Preencha todos os campos")
             return }
               
-        registerVM.registerAnimal(name: name, description: description, age: age, species: species, image: image) { [weak self] in
-            self?.registerSucceeded()
+        registerVM.registerAnimal(name: name, description: description, age: age, species: species, image: image) { [weak self] (result) in
+            
+            switch result {
+            case .success:
+                self?.registerSucceeded()
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+                guard let alert = self?.fetchAlert(title: "Oops...", message: "Não foi possível cadastrar o novo animal") else { return }
+                self?.present(alert, animated: true) {
+                    self?.activityIndicator.stopAnimating()
+                    self?.buttonRegister.isUserInteractionEnabled = true
+                    self?.buttonRegister.backgroundColor = .purpleButtonColor
+                }
+            }
         }
     }
     

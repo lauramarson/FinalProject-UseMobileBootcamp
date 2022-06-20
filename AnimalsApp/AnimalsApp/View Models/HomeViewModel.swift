@@ -26,18 +26,16 @@ class HomeViewModel {
         return animals[index]
     }
     
-    func getAllAnimals(completion: @escaping () -> ()) {
+    func getAllAnimals(completion: @escaping (Result<Void, Error>) -> ()) {
         webServices.fetchAnimals() { [weak self] (result) in
             switch result {
             case .success(let animals):
                 self?.handleAnimalResponse(with: animals)
                 self?.setFavorite()
+                completion(.success(()))
             case .failure(let error):
-                //obs criar alerta
-                print(error.localizedDescription)
+                completion(.failure(error))
             }
-        
-            completion()
         }
     }
     
@@ -84,6 +82,6 @@ class HomeViewModel {
 
 extension HomeViewModel: UpdateDelegateProtocol {
     func updateFavoriteAnimals() {
-//        setFavorite()
+        setFavorite()
     }
 }
