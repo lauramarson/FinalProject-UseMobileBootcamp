@@ -43,6 +43,8 @@ class FavoritesViewController: UIViewController {
             NSAttributedString.Key.font: UIFont(name: "OpenSans", size: 20) ?? UIFont.systemFont(ofSize: 20)]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        
+        navigationItem.backButtonTitle = ""
     }
 
 }
@@ -75,7 +77,8 @@ extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
         
-        //continuar
+        let animal = favoritesVM?.modelAt(indexPath.row)
+        detailVC.animal = animal
 
         navigationController?.pushViewController(detailVC, animated: true)
         
