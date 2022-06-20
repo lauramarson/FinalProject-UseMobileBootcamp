@@ -20,6 +20,7 @@
                 <outlet property="activityIndicator" destination="ksy-aq-ngY" id="40E-Lw-8uq"/>
                 <outlet property="buttonRegister" destination="IgQ-5e-alS" id="L9L-mM-03l"/>
                 <outlet property="scrollView" destination="N6J-fj-czs" id="h1p-Eq-CBb"/>
+                <outlet property="successAnimationView" destination="jGf-Ob-KRg" id="DJu-km-p10"/>
                 <outlet property="textFieldAge" destination="8vc-1n-XQI" id="ttV-kf-O7h"/>
                 <outlet property="textFieldDescription" destination="Jyn-Gz-FpY" id="34R-ts-wvz"/>
                 <outlet property="textFieldImageLink" destination="xF5-Gv-lri" id="TTD-1A-RkQ"/>
@@ -33,6 +34,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view hidden="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="jGf-Ob-KRg" customClass="AnimationView" customModule="Lottie">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="success"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6J-fj-czs">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
@@ -130,7 +138,11 @@
                 <constraint firstItem="N6J-fj-czs" firstAttribute="top" secondItem="GfU-j5-1ca" secondAttribute="top" id="CIt-AK-ULE"/>
                 <constraint firstItem="N6J-fj-czs" firstAttribute="trailing" secondItem="GfU-j5-1ca" secondAttribute="trailing" id="EMb-10-sJT"/>
                 <constraint firstItem="GfU-j5-1ca" firstAttribute="bottom" secondItem="N6J-fj-czs" secondAttribute="bottom" id="IaN-wf-3fc"/>
+                <constraint firstItem="jGf-Ob-KRg" firstAttribute="top" secondItem="GfU-j5-1ca" secondAttribute="top" id="MLe-pW-iLF"/>
+                <constraint firstItem="jGf-Ob-KRg" firstAttribute="trailing" secondItem="GfU-j5-1ca" secondAttribute="trailing" id="PC8-Fr-MQo"/>
+                <constraint firstItem="jGf-Ob-KRg" firstAttribute="leading" secondItem="GfU-j5-1ca" secondAttribute="leading" id="RLy-Nq-UWQ"/>
                 <constraint firstItem="N6J-fj-czs" firstAttribute="leading" secondItem="GfU-j5-1ca" secondAttribute="leading" id="UIL-Bv-sAc"/>
+                <constraint firstItem="GfU-j5-1ca" firstAttribute="bottom" secondItem="jGf-Ob-KRg" secondAttribute="bottom" id="ua6-ac-ymT"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="99.776785714285708"/>
         </view>

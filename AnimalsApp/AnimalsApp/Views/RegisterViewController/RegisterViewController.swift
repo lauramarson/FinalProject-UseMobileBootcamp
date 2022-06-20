@@ -6,11 +6,12 @@
 //
 
 import UIKit
-import Alamofire
+import Lottie
 
 class RegisterViewController: UIViewController {
     // MARK: Properties
     private var registerVM = RegisterViewModel()
+//    private var animationView: AnimationView?
     
     // MARK: Outlets
     @IBOutlet weak var scrollView: UIScrollView!
@@ -21,6 +22,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var textFieldAge: UITextField!
     @IBOutlet weak var buttonRegister: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var successAnimationView: AnimationView!
     
     // MARK: Overrides
     override func viewDidLoad() {
@@ -34,6 +36,7 @@ class RegisterViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func handlerButtonRegister(_ sender: Any) {
+        view.endEditing(true)
         activityIndicator.startAnimating()
         buttonRegister.backgroundColor = .grayCellFrame
         buttonRegister.isUserInteractionEnabled = false
@@ -50,6 +53,7 @@ class RegisterViewController: UIViewController {
             
             switch result {
             case .success:
+                self?.setSuccessAnimation()
                 self?.registerSucceeded()
                 
             case .failure(let error):
@@ -122,6 +126,20 @@ class RegisterViewController: UIViewController {
             textField?.text = ""
         }
     }
+    
+    private func setSuccessAnimation() {
+        successAnimationView.isHidden = false
+        successAnimationView.contentMode = .scaleAspectFit
+        successAnimationView.loopMode = .playOnce
+        successAnimationView.animationSpeed = 1
+        scrollView.isHidden = true
+        successAnimationView.play { [weak self] _ in
+            self?.successAnimationView.isHidden = true
+            self?.scrollView.isHidden = false
+        }
+    }
+    
+    
     
     private func notificationCenter() {
         let notificationCenter = NotificationCenter.default
