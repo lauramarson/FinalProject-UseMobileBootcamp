@@ -15,6 +15,8 @@
 		A458A08C2860BD2D0057BC34 /* Alert+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458A08B2860BD2D0057BC34 /* Alert+UIViewController.swift */; };
 		A458A0922860F7C40057BC34 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = A458A0912860F7C40057BC34 /* success.json */; };
 		A458A094286128FF0057BC34 /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = A458A093286128FF0057BC34 /* empty.json */; };
+		A458A09E28628B600057BC34 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458A09C28628B600057BC34 /* FavoritesViewController.swift */; };
+		A458A09F28628B600057BC34 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A458A09D28628B600057BC34 /* FavoritesViewController.xib */; };
 		A463D0172858EBBB00929A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D0162858EBBB00929A3C /* AppDelegate.swift */; };
 		A463D0212858EBBB00929A3C /* AnimalsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A463D01F2858EBBB00929A3C /* AnimalsApp.xcdatamodeld */; };
 		A463D0232858EBBD00929A3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A463D0222858EBBD00929A3C /* Assets.xcassets */; };
@@ -28,8 +30,6 @@
 		A463D0542858F60C00929A3C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A463D0522858F60C00929A3C /* HomeViewController.xib */; };
 		A463D0572858F62600929A3C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D0552858F62600929A3C /* RegisterViewController.swift */; };
 		A463D0582858F62600929A3C /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A463D0562858F62600929A3C /* RegisterViewController.xib */; };
-		A463D05D2858F64B00929A3C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D05B2858F64B00929A3C /* FavoritesViewController.swift */; };
-		A463D05E2858F64B00929A3C /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A463D05C2858F64B00929A3C /* FavoritesViewController.xib */; };
 		A463D06228590D0300929A3C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D06128590D0300929A3C /* Images.swift */; };
 		A463D065285953F900929A3C /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D063285953F900929A3C /* AnimalTableViewCell.swift */; };
 		A463D066285953F900929A3C /* AnimalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A463D064285953F900929A3C /* AnimalTableViewCell.xib */; };
@@ -76,6 +76,8 @@
 		A458A08B2860BD2D0057BC34 /* Alert+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+UIViewController.swift"; sourceTree = "<group>"; };
 		A458A0912860F7C40057BC34 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
 		A458A093286128FF0057BC34 /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty.json; sourceTree = "<group>"; };
+		A458A09C28628B600057BC34 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		A458A09D28628B600057BC34 /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		A463D0132858EBBB00929A3C /* AnimalsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A463D0162858EBBB00929A3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A463D0202858EBBB00929A3C /* AnimalsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnimalsApp.xcdatamodel; sourceTree = "<group>"; };
@@ -93,8 +95,6 @@
 		A463D0522858F60C00929A3C /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		A463D0552858F62600929A3C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A463D0562858F62600929A3C /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
-		A463D05B2858F64B00929A3C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		A463D05C2858F64B00929A3C /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		A463D06128590D0300929A3C /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		A463D063285953F900929A3C /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
 		A463D064285953F900929A3C /* AnimalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalTableViewCell.xib; sourceTree = "<group>"; };
@@ -262,8 +262,8 @@
 		A463D0502858F4DE00929A3C /* FavoritesViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A463D05B2858F64B00929A3C /* FavoritesViewController.swift */,
-				A463D05C2858F64B00929A3C /* FavoritesViewController.xib */,
+				A458A09C28628B600057BC34 /* FavoritesViewController.swift */,
+				A458A09D28628B600057BC34 /* FavoritesViewController.xib */,
 			);
 			path = FavoritesViewController;
 			sourceTree = "<group>";
@@ -470,10 +470,10 @@
 				A458A094286128FF0057BC34 /* empty.json in Resources */,
 				A463D066285953F900929A3C /* AnimalTableViewCell.xib in Resources */,
 				A463D06E285A22D300929A3C /* DetailViewController.xib in Resources */,
+				A458A09F28628B600057BC34 /* FavoritesViewController.xib in Resources */,
 				A463D0262858EBBD00929A3C /* LaunchScreen.storyboard in Resources */,
 				A458A0922860F7C40057BC34 /* success.json in Resources */,
 				A463D0232858EBBD00929A3C /* Assets.xcassets in Resources */,
-				A463D05E2858F64B00929A3C /* FavoritesViewController.xib in Resources */,
 				A463D078285A5A8000929A3C /* OpenSans-Regular.ttf in Resources */,
 				A463D0542858F60C00929A3C /* HomeViewController.xib in Resources */,
 			);
@@ -613,10 +613,10 @@
 				A463D071285A373800929A3C /* Animals.swift in Sources */,
 				A458A086285E58CC0057BC34 /* FavoritesViewModel.swift in Sources */,
 				A463D04B2858F39000929A3C /* MainTabBarController.swift in Sources */,
+				A458A09E28628B600057BC34 /* FavoritesViewController.swift in Sources */,
 				A463D074285A398900929A3C /* HomeViewModel.swift in Sources */,
 				A463D07A285B8D8E00929A3C /* Colors.swift in Sources */,
 				5CA996F8285A98FB00FF5D79 /* RegisterViewModel.swift in Sources */,
-				A463D05D2858F64B00929A3C /* FavoritesViewController.swift in Sources */,
 				A463D06D285A22D200929A3C /* DetailViewController.swift in Sources */,
 				A463D07E285CF28200929A3C /* String.swift in Sources */,
 				A463D069285A1A5A00929A3C /* WebServices.swift in Sources */,
