@@ -32,14 +32,7 @@ struct Animal: Codable {
         case image
         case createdAt = "created_at"
         case updatedAt = "updated_at"
-        
-//        init(from decoder: Decoder) throws {
-//            let label = try decoder.singleValueContainer().decode(String.self)
-//            self = CodingKeys(rawValue: label) ?? .unsupported
-//        }
-    }
-    
-    
+    }   
 }
 
 extension Animal {
