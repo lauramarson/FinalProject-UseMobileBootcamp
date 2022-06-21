@@ -6,30 +6,8 @@
 //
 
 import Foundation
-import CoreData
 @testable import AnimalsApp
 import XCTest
-
-//struct ManagedContextMock {
-//
-//    static func build() -> NSManagedObjectContext {
-//
-//        let persistentStoreDescription = NSPersistentStoreDescription()
-//        persistentStoreDescription.type = NSInMemoryStoreType
-//
-//        let container = NSPersistentContainer(name: "AnimalsApp")
-//        container.persistentStoreDescriptions = [persistentStoreDescription]
-//
-//        container.loadPersistentStores { _, error in
-//          if let error = error as NSError? {
-//            XCTFail("Unresolved error \(error), \(error.userInfo)")
-//          }
-//        }
-//
-//        return container.viewContext
-//    }
-//
-//}
 
 class CoreDataMock: CoreDataContract {
     var delegate = [UpdateDelegateProtocol]()
