@@ -17,7 +17,6 @@
 		A458A094286128FF0057BC34 /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = A458A093286128FF0057BC34 /* empty.json */; };
 		A458A09628621A570057BC34 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458A09528621A570057BC34 /* StringExtensions.swift */; };
 		A458A09828622EA90057BC34 /* CoreDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458A09728622EA90057BC34 /* CoreDataMock.swift */; };
-		A458A09B28623DE80057BC34 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458A09A28623DE80057BC34 /* CoreDataTests.swift */; };
 		A463D0172858EBBB00929A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D0162858EBBB00929A3C /* AppDelegate.swift */; };
 		A463D0212858EBBB00929A3C /* AnimalsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A463D01F2858EBBB00929A3C /* AnimalsApp.xcdatamodeld */; };
 		A463D0232858EBBD00929A3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A463D0222858EBBD00929A3C /* Assets.xcassets */; };
@@ -83,7 +82,6 @@
 		A458A093286128FF0057BC34 /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty.json; sourceTree = "<group>"; };
 		A458A09528621A570057BC34 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		A458A09728622EA90057BC34 /* CoreDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMock.swift; sourceTree = "<group>"; };
-		A458A09A28623DE80057BC34 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		A463D0132858EBBB00929A3C /* AnimalsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A463D0162858EBBB00929A3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A463D0202858EBBB00929A3C /* AnimalsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnimalsApp.xcdatamodel; sourceTree = "<group>"; };
@@ -186,14 +184,6 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
-		A458A09928623DCA0057BC34 /* CoreDataTests */ = {
-			isa = PBXGroup;
-			children = (
-				A458A09A28623DE80057BC34 /* CoreDataTests.swift */,
-			);
-			path = CoreDataTests;
-			sourceTree = "<group>";
-		};
 		A463D00A2858EBBA00929A3C = {
 			isa = PBXGroup;
 			children = (
@@ -237,7 +227,6 @@
 		A463D02F2858EBBD00929A3C /* AnimalsAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				A458A09928623DCA0057BC34 /* CoreDataTests */,
 				A463D088285D270C00929A3C /* ExtensionsTests */,
 				A463D087285D26F200929A3C /* ViewModelsTests */,
 				A463D07F285D1B0B00929A3C /* Mocks */,
@@ -677,7 +666,6 @@
 			files = (
 				A463D08A285D273400929A3C /* StringExtensionTests.swift in Sources */,
 				A458A09828622EA90057BC34 /* CoreDataMock.swift in Sources */,
-				A458A09B28623DE80057BC34 /* CoreDataTests.swift in Sources */,
 				A463D085285D1F8800929A3C /* RegisterViewModelTests.swift in Sources */,
 				A463D081285D1B4800929A3C /* SuccessWebService.swift in Sources */,
 				A463D083285D1D4500929A3C /* HomeViewModelTests.swift in Sources */,
