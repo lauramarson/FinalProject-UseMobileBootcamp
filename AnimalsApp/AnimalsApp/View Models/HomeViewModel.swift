@@ -9,10 +9,13 @@ import Foundation
 
 class HomeViewModel {
     private var webServices: WebServicesContract
+    private var coreData: CoreDataContract
     var animals = [Animal]()
     
-    init(webServices: WebServicesContract = WebServices()) {
+    init(webServices: WebServicesContract = WebServices(), coreData: CoreDataContract = CoreData.shared) {
         self.webServices = webServices
+        self.coreData = coreData
+        coreData.delegate.append(self)
     }
     
     func numberOfRows() -> Int {
@@ -23,17 +26,16 @@ class HomeViewModel {
         return animals[index]
     }
     
-    func getAllAnimals(completion: @escaping () -> ()) {
+    func getAllAnimals(completion: @escaping (Result<Void, Error>) -> ()) {
         webServices.fetchAnimals() { [weak self] (result) in
             switch result {
             case .success(let animals):
                 self?.handleAnimalResponse(with: animals)
+                self?.setFavorite()
+                completion(.success(()))
             case .failure(let error):
-                //obs criar alerta
-                print(error.localizedDescription)
+                completion(.failure(error))
             }
-        
-            completion()
         }
     }
     
@@ -44,5 +46,42 @@ class HomeViewModel {
             }
             return false
         }
+    }
+    
+    //MARK: Core Data Methods
+    
+    private func setFavorite() {
+        for (index, animal) in animals.enumerated() {
+            guard let id = animal.id else { return }
+            animals[index].isFavorite = coreData.isFavorite(id: id)
+        }
+    }
+    
+    func removeFavorite(at index: Int) {
+        guard let id = animals[index].id else { return }
+        coreData.removeFavorite(id: id)
+        animals[index].isFavorite = false
+    }
+    
+    func addFavorite(at index: Int, with image: Data) {
+        animals[index].imageData = image
+        coreData.addFavorite(animals[index])
+        animals[index].isFavorite = true
+    }
+    
+    func loadFavorites(completion: @escaping () -> ()) {
+        coreData.loadFavoriteAnimals {
+            completion()
+        }
+    }
+    
+    func saveChangesInCoreData() {
+        coreData.saveChanges()
+    }
+}
+
+extension HomeViewModel: UpdateDelegateProtocol {
+    func updateFavoriteAnimals() {
+        setFavorite()
     }
 }

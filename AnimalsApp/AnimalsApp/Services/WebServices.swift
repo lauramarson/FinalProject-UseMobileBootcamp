@@ -27,6 +27,7 @@ class WebServices: WebServicesContract {
                     completion(.success(data.items))
                 case .failure(let error):
                     completion(.failure(error))
+                    print(error)
                 }
             }
     }

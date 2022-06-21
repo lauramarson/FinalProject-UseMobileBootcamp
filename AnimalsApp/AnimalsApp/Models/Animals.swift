@@ -21,6 +21,7 @@ struct Animal: Codable {
     var createdAt: String?
     var updatedAt: String?
     var isFavorite: Bool? = false
+    var imageData: Data?
     
     enum CodingKeys: String, CodingKey {
         case id

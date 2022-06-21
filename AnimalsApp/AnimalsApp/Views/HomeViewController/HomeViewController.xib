@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="AnimalsApp" customModuleProvider="target">
             <connections>
+                <outlet property="emptyAnimationView" destination="TJt-B1-8gf" id="NeJ-cd-3ZM"/>
                 <outlet property="loadingView" destination="3je-EF-sGM" id="mFG-Xj-K4G"/>
                 <outlet property="tableView" destination="Siv-wY-ZEk" id="zHW-EM-j8u"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -30,16 +31,27 @@
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="3je-EF-sGM">
                     <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                 </activityIndicatorView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TJt-B1-8gf" customClass="AnimationView" customModule="Lottie">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="empty"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="TJt-B1-8gf" secondAttribute="bottom" id="0hG-wp-V08"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Siv-wY-ZEk" secondAttribute="trailing" id="CK9-kj-fPh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Siv-wY-ZEk" secondAttribute="bottom" id="Fs7-zJ-zOE"/>
                 <constraint firstItem="3je-EF-sGM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IXw-Qp-7bN"/>
                 <constraint firstItem="Siv-wY-ZEk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Mug-YL-ycT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TJt-B1-8gf" secondAttribute="trailing" id="N84-y4-Cib"/>
                 <constraint firstItem="Siv-wY-ZEk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RJW-a7-pVc"/>
+                <constraint firstItem="TJt-B1-8gf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SbK-mf-c5J"/>
                 <constraint firstItem="3je-EF-sGM" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="sUh-hY-zSM"/>
+                <constraint firstItem="TJt-B1-8gf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="thz-we-c9M"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="83.705357142857139"/>
         </view>

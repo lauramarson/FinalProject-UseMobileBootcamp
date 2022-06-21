@@ -22,7 +22,7 @@ class RegisterViewModelTests: XCTestCase {
         
         let viewModel = RegisterViewModel(webServices: successWebService)
         
-        viewModel.registerAnimal(name: "", description: "", age: 0, species: "", image: "") { }
+        viewModel.registerAnimal(name: "", description: "", age: 0, species: "", image: "") { _ in }
         
         XCTAssertTrue(successWebService.registerAnimalCalled)
     }
