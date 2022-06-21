@@ -32,7 +32,14 @@ struct Animal: Codable {
         case image
         case createdAt = "created_at"
         case updatedAt = "updated_at"
+        
+//        init(from decoder: Decoder) throws {
+//            let label = try decoder.singleValueContainer().decode(String.self)
+//            self = CodingKeys(rawValue: label) ?? .unsupported
+//        }
     }
+    
+    
 }
 
 extension Animal {
@@ -42,5 +49,27 @@ extension Animal {
             return URL(fileURLWithPath: "")
         }
         return imageURL
+    }
+}
+
+extension Animal {
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        if let resultInt = try? values.decodeIfPresent(Int.self, forKey: .age) {
+            age = resultInt
+        } else {
+            if let resultString = try? values.decodeIfPresent(String.self, forKey: .age) {
+                age = Int(resultString) ?? 0
+            }
+        }
+        
+        id = try values.decode(String.self, forKey: .id)
+        name = try values.decodeIfPresent(String.self, forKey: .name)
+        description = try values.decodeIfPresent(String.self, forKey: .description)
+        species = try values.decodeIfPresent(String.self, forKey: .species)
+        image = try values.decodeIfPresent(String.self, forKey: .image)
+        createdAt = try values.decode(String.self, forKey: .createdAt)
+        updatedAt = try values.decode(String.self, forKey: .updatedAt)
     }
 }
