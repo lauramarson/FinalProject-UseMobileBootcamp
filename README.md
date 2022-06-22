@@ -8,8 +8,8 @@ Desafio final do Bootcamp iOS da UseMobile. Aplicativo de 4 telas responsável p
 
 ## Principais Tecnologias
 - Swift e UIKit
-- Arquitetura MVVM
-- Testes unitários
+- <b>Arquitetura MVVM</b>
+- <b>Testes unitários</b>
 - Gerenciador de dependências Cocoapods
 - Alamofire para requisições API, Lottie para fazer animações e SDWebImage para baixar imagens de forma assíncrona e cache em memória.
 
