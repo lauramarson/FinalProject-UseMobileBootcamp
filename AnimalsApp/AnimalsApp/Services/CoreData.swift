@@ -25,7 +25,7 @@ protocol UpdateDelegateProtocol: AnyObject {
 class CoreData: CoreDataContract {
     static let shared = CoreData()
     
-    private var managedContext: NSManagedObjectContext?
+    var managedContext: NSManagedObjectContext?
     
     var delegate = [UpdateDelegateProtocol]()
     var favoriteAnimals = [FavoriteAnimal]() {
