@@ -45,10 +45,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTn-FQ-xzf">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="525"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="aHz-3L-Vgj">
-                                    <rect key="frame" x="13" y="20" width="349" height="485"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="aHz-3L-Vgj">
+                                    <rect key="frame" x="13" y="20" width="349" height="510"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SD0-gJ-dkh">
                                             <rect key="frame" x="0.0" y="0.0" width="349" height="60"/>
@@ -56,30 +56,30 @@
                                                 <constraint firstAttribute="height" constant="60" id="jeK-zE-jfS"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Link da imagem" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xF5-Gv-lri">
-                                            <rect key="frame" x="0.0" y="85" width="349" height="60"/>
+                                            <rect key="frame" x="0.0" y="90" width="349" height="60"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Descrição" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jyn-Gz-FpY">
-                                            <rect key="frame" x="0.0" y="170" width="349" height="60"/>
+                                            <rect key="frame" x="0.0" y="180" width="349" height="60"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Espécie" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rD2-wq-owE">
-                                            <rect key="frame" x="0.0" y="255" width="349" height="60"/>
+                                            <rect key="frame" x="0.0" y="270" width="349" height="60"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Idade" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8vc-1n-XQI">
-                                            <rect key="frame" x="0.0" y="340" width="349" height="60"/>
+                                            <rect key="frame" x="0.0" y="360" width="349" height="60"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgQ-5e-alS">
-                                            <rect key="frame" x="0.0" y="425" width="349" height="60"/>
+                                            <rect key="frame" x="0.0" y="450" width="349" height="60"/>
                                             <color key="backgroundColor" name="purpleButtonColor"/>
                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -116,7 +116,7 @@
                             </constraints>
                         </view>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ksy-aq-ngY">
-                            <rect key="frame" x="230" y="465" width="20" height="20"/>
+                            <rect key="frame" x="230" y="490" width="20" height="20"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </activityIndicatorView>
@@ -147,6 +147,9 @@
             <point key="canvasLocation" x="131.8840579710145" y="99.776785714285708"/>
         </view>
     </objects>
+    <designables>
+        <designable name="jGf-Ob-KRg"/>
+    </designables>
     <resources>
         <namedColor name="purpleButtonColor">
             <color red="0.45100000500679016" green="0.19200000166893005" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

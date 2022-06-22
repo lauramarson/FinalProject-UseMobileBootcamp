@@ -162,7 +162,27 @@ class RegisterViewController: UIViewController {
 
 extension RegisterViewController: UIGestureRecognizerDelegate, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if textField == textFieldName {
+            textFieldImageLink.becomeFirstResponder()
+        } else if textField == textFieldImageLink {
+            textFieldDescription.becomeFirstResponder()
+        } else if textField == textFieldDescription {
+            textFieldSpecie.becomeFirstResponder()
+        } else if textField == textFieldSpecie {
+            textFieldAge.becomeFirstResponder()
+        }
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.isEditing {
+            textField.layer.borderColor = UIColor.black.cgColor
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.endEditing(true) {
+            textField.layer.borderColor = UIColor.grayCellFrame?.cgColor
+        }
     }
 }
