@@ -116,7 +116,7 @@ class HomeViewController: UIViewController {
     }
 }
 
-// MARK: TableView Data Source
+// MARK: - TableView Data Source
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return homeVM.numberOfRows()
@@ -138,7 +138,7 @@ extension HomeViewController: UITableViewDataSource {
 
 }
 
-// MARK: TableView Delegate
+// MARK: - TableView Delegate
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -154,7 +154,7 @@ extension HomeViewController: UITableViewDelegate {
     
 }
 
-// MARK: Action Delegate Protocol
+// MARK: - Action Delegate Protocol
 extension HomeViewController: ActionDelegateProtocol {
     func addFavoriteTapped(at index: Int, with image: Data) {
         homeVM.addFavorite(at: index, with: image)

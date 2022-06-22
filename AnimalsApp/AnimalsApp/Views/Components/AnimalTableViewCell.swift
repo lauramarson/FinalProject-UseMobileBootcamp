@@ -14,26 +14,19 @@ protocol ActionDelegateProtocol: AnyObject {
 }
 
 class AnimalTableViewCell: UITableViewCell {
+    
+    // MARK: Properties
     weak var delegate: ActionDelegateProtocol?
     var animal: Animal?
     var index: Int?
 
+    // MARK: Outlets
     @IBOutlet weak var animalImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+    // MARK: Methods
     func configure() {
         guard let animal = animal else { return }
         
@@ -57,6 +50,7 @@ class AnimalTableViewCell: UITableViewCell {
         animal.isFavorite ?? false ? favoriteButton.setImage(.favorite, for: .normal) : favoriteButton.setImage(.notFavorite, for: .normal)
     }
     
+    // MARK: Actions
     @IBAction func favoritePressed(_ sender: UIButton) {
         guard let animal = animal, let index = index else { return }
         

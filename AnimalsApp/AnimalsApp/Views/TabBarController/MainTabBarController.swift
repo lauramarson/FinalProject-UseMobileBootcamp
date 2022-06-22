@@ -9,6 +9,7 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
+    // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -16,6 +17,7 @@ class MainTabBarController: UITabBarController {
         setupTabBar()
     }
 
+    // MARK: Methods
     func setupViewControllers() {
         
         let homeVC = UINavigationController(rootViewController: HomeViewController())

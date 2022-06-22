@@ -8,16 +8,28 @@
 import Foundation
  
 class FavoritesViewModel {
+    //MARK: Properties
     let coreData: CoreDataContract
     
     var favoriteAnimals = [Animal]()
     private var newCoreDataChanges = true
     
+    //MARK: Initialization
     init(coreData: CoreDataContract = CoreData.shared) {
         self.coreData = coreData
         coreData.delegate.append(self)
     }
     
+    //MARK: Methods
+    func numberOfRows() -> Int {
+        return favoriteAnimals.count
+    }
+    
+    func modelAt(_ index: Int) -> Animal {
+        return favoriteAnimals[index]
+    }
+    
+    //MARK: Core Data Methods
     func getFavoriteAnimals(completion: @escaping () -> Void) {
         guard newCoreDataChanges else { return }
         
@@ -29,14 +41,6 @@ class FavoritesViewModel {
         completion()
     }
     
-    func numberOfRows() -> Int {
-        return favoriteAnimals.count
-    }
-    
-    func modelAt(_ index: Int) -> Animal {
-        return favoriteAnimals[index]
-    }
-    
     func removeFavorite(at index: Int, completion: @escaping () -> Void) {
         guard let id = favoriteAnimals[index].id else { return }
         favoriteAnimals.remove(at: index)
@@ -45,6 +49,7 @@ class FavoritesViewModel {
     }
 }
 
+//MARK: Update Delegate Protocol
 extension FavoritesViewModel: UpdateDelegateProtocol {
     func updateFavoriteAnimals() {
         newCoreDataChanges = true

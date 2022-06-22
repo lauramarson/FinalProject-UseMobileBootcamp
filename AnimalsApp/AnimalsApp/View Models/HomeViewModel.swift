@@ -8,16 +8,19 @@
 import Foundation
 
 class HomeViewModel {
+    //MARK: Properties
     private var webServices: WebServicesContract
     private var coreData: CoreDataContract
     var animals = [Animal]()
     
+    //MARK: Initialization
     init(webServices: WebServicesContract = WebServices(), coreData: CoreDataContract = CoreData.shared) {
         self.webServices = webServices
         self.coreData = coreData
         coreData.delegate.append(self)
     }
     
+    //MARK: Methods
     func numberOfRows() -> Int {
         return animals.count
     }
@@ -80,6 +83,7 @@ class HomeViewModel {
     }
 }
 
+//MARK: Update Delegate Protocol
 extension HomeViewModel: UpdateDelegateProtocol {
     func updateFavoriteAnimals() {
         setFavorite()
