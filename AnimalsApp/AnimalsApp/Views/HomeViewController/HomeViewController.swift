@@ -21,9 +21,8 @@ class HomeViewController: UIViewController {
     // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Home"
         loadingView.startAnimating()
-
-        setNavigationItems()
         setTableView()
         
         homeVM.loadFavorites { [weak self] in
@@ -44,21 +43,7 @@ class HomeViewController: UIViewController {
         homeVM.saveChangesInCoreData()
     }
     
-    // MARK: Methods
-    private func setNavigationItems() {
-        title = "Home"
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.blueTextColor ?? UIColor.blue,
-            NSAttributedString.Key.font: UIFont(name: "OpenSans", size: 20) ?? UIFont.systemFont(ofSize: 20)]
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
-        
-        navigationItem.backButtonTitle = ""
-    }
-    
+    // MARK: Methods    
     private func setTableView() {
         tableView.dataSource = self
         tableView.delegate = self

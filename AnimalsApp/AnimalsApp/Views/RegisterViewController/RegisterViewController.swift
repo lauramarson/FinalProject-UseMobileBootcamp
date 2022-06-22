@@ -26,8 +26,8 @@ class RegisterViewController: UIViewController {
     // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Cadastrar"
         setupUI()
-        setNavigationItems()
         delegateTextField()
         notificationCenter()
         activityIndicator.hidesWhenStopped = true
@@ -40,6 +40,37 @@ class RegisterViewController: UIViewController {
         buttonRegister.backgroundColor = .grayCellFrame
         buttonRegister.isUserInteractionEnabled = false
         
+        registerAnimal()
+    }
+    
+    // MARK: Methods    
+    private func setupUI() {
+        [textFieldName, textFieldImageLink, textFieldDescription, textFieldSpecie, textFieldAge].forEach { textField in
+            textField?.layer.cornerRadius = 8
+            textField?.layer.borderWidth = 1
+            textField?.layer.borderColor = UIColor.grayCellFrame?.cgColor
+            textField?.layer.masksToBounds = true
+        }
+        
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.grayTextColor ?? UIColor.systemGray, NSAttributedString.Key.font: UIFont(name: "OpenSans", size: 16) ?? UIFont.systemFont(ofSize: 16)]
+        textFieldName.attributedPlaceholder = NSAttributedString(string: "Nome", attributes: attributes)
+        textFieldImageLink.attributedPlaceholder = NSAttributedString(string: "Link da imagem", attributes: attributes)
+        textFieldDescription.attributedPlaceholder = NSAttributedString(string: "Descrição", attributes: attributes)
+        textFieldSpecie.attributedPlaceholder = NSAttributedString(string: "Espécie", attributes: attributes)
+        textFieldAge.attributedPlaceholder = NSAttributedString(string: "Idade", attributes: attributes)
+        buttonRegister.layer.cornerRadius = 10
+    }
+    
+    private func delegateTextField() {
+        textFieldAge.delegate = self
+        textFieldName.delegate = self
+        textFieldDescription.delegate = self
+        textFieldSpecie.delegate = self
+        textFieldImageLink.delegate = self
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+    }
+    
+    private func registerAnimal() {
         guard let name = textFieldName.text?.testIfIsEmpty(),
               let description = textFieldDescription.text?.testIfIsEmpty(),
               let age = Int(textFieldAge.text ?? ""),
@@ -65,45 +96,6 @@ class RegisterViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    // MARK: Methods
-    private func setNavigationItems() {
-        title = "Cadastrar"
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.blueTextColor ?? UIColor.blue,
-            NSAttributedString.Key.font: UIFont(name: "OpenSans", size: 20) ?? UIFont.systemFont(ofSize: 20)]
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
-    }
-    
-    private func setupUI() {
-        [textFieldName, textFieldImageLink, textFieldDescription, textFieldSpecie, textFieldAge].forEach { textField in
-            textField?.layer.cornerRadius = 8
-            textField?.layer.borderWidth = 1
-            textField?.layer.borderColor = UIColor.grayCellFrame?.cgColor
-            textField?.layer.masksToBounds = true
-        }
-        
-        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.grayTextColor ?? UIColor.systemGray, NSAttributedString.Key.font: UIFont(name: "OpenSans", size: 16) ?? UIFont.systemFont(ofSize: 16)]
-        textFieldName.attributedPlaceholder = NSAttributedString(string: "Nome", attributes: attributes)
-        textFieldImageLink.attributedPlaceholder = NSAttributedString(string: "Link da imagem", attributes: attributes)
-        textFieldDescription.attributedPlaceholder = NSAttributedString(string: "Descrição", attributes: attributes)
-        textFieldSpecie.attributedPlaceholder = NSAttributedString(string: "Espécie", attributes: attributes)
-        textFieldAge.attributedPlaceholder = NSAttributedString(string: "Idade", attributes: attributes)
-        buttonRegister.layer.cornerRadius = 10
-    }
-    
-    private func delegateTextField() {
-        textFieldAge.delegate = self
-        textFieldName.delegate = self
-        textFieldDescription.delegate = self
-        textFieldSpecie.delegate = self
-        textFieldImageLink.delegate = self
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
     
     private func showAlerts(alertTitle: String?, alertMessage: String?) {
