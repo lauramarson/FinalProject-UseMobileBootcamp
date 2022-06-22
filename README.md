@@ -1,5 +1,5 @@
 # Desafio Final - Bootcamp UseMobile iOS
-Desafio final do Bootcamp iOS da UseMobile. Aplicativo de 4 telas responsável por fazer requisições e popular uma API de animais.
+Desafio final do Bootcamp iOS da Use Mobile. Aplicativo de 4 telas responsável por fazer requisições e popular uma API de animais.
 
 ## Como rodar
 
