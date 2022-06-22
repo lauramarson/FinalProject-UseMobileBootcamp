@@ -8,22 +8,92 @@
 import UIKit
 
 class FavoritesViewController: UIViewController {
-
+    
+    //MARK: Properties
+    var favoritesVM: FavoritesViewModel?
+    
+    //MARK: Outlets
+    @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationItems()
+        favoritesVM = FavoritesViewModel()
+        
+        setTableView()
 
-        view.backgroundColor = .blue
+        favoritesVM?.getFavoriteAnimals { [weak self] in            self?.tableView.reloadData()
+        }
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        favoritesVM?.getFavoriteAnimals { [weak self] in            self?.tableView.reloadData()
+        }
     }
-    */
+    
+    //MARK: Methods
+    private func setNavigationItems() {
+        title = "Favoritos"
+        navigationItem.backButtonTitle = ""
+    }
+    
+    private func setTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.register(UINib(nibName: "AnimalTableViewCell", bundle: nil), forCellReuseIdentifier: "Animal")
+    }
+}
+
+// MARK: - TableView Data Source
+extension FavoritesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return favoritesVM?.numberOfRows() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Animal", for: indexPath) as? AnimalTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.animal = favoritesVM?.modelAt(indexPath.row)
+        cell.index = indexPath.row
+        cell.delegate = self
+        cell.configure()
+        
+        return cell
+    }
 
 }
+
+// MARK: - TableView Delegate
+extension FavoritesViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        
+        let animal = favoritesVM?.modelAt(indexPath.row)
+        detailVC.animal = animal
+
+        navigationController?.pushViewController(detailVC, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}
+
+// MARK: - Action Delegate Protocol
+extension FavoritesViewController: ActionDelegateProtocol {
+    func addFavoriteTapped(at index: Int, with image: Data) {
+    }
+    
+    func removeFavoriteTapped(at index: Int) {
+        favoritesVM?.removeFavorite(at: index) { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+}
+

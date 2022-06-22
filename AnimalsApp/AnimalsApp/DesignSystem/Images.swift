@@ -10,8 +10,15 @@ import UIKit
 extension UIImage {
     static let registerTabBar: UIImage? = UIImage(named: "registerBlack")
     static let registerSelectedTabBar: UIImage? = UIImage(named: "registerWhite")
+    
     static let favoritesTabBar: UIImage? = UIImage(named: "favoritesBlack")
     static let favoritesSelectedTabBar: UIImage? = UIImage(named: "favoritesWhite")
+    
     static let homeTabBar: UIImage? = UIImage(named: "homeBlack")
     static let homeSelectedTabBar: UIImage? = UIImage(named: "homeWhite")
+    
+    static let favorite: UIImage? = UIImage(named: "favorited")
+    static let notFavorite: UIImage? = UIImage(named: "addFavorite")
+    
+    static let imagePlaceHolder: UIImage? = UIImage(named: "imagePlaceholder")
 }
