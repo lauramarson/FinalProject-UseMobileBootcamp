@@ -8,7 +8,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.0)
   - lottie-ios
-  - SDWebImage
+  - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
@@ -21,6 +21,6 @@ SPEC CHECKSUMS:
   lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   SDWebImage: a47aea9e3d8816015db4e523daff50cfd294499d
 
-PODFILE CHECKSUM: 7a561424b0c55993197b50b6d9c2486a484d0b40
+PODFILE CHECKSUM: d2da6f3d02c747c9aa1c314953757ab5152d583a
 
 COCOAPODS: 1.11.3
