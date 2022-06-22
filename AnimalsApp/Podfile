@@ -7,8 +7,9 @@ target 'AnimalsApp' do
 
   # Pods for AnimalsApp
   pod 'Alamofire', '~> 5.0'
-  pod 'SDWebImage', '~> 5.0'
   pod 'lottie-ios'
+  pod 'SDWebImage', '~> 5.0'
+  
 
   target 'AnimalsAppTests' do
     inherit! :search_paths

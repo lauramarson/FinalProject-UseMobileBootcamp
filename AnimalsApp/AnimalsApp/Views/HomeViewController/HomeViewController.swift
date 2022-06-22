@@ -21,8 +21,8 @@ class HomeViewController: UIViewController {
     // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home"
         loadingView.startAnimating()
+        setNavigationItems()
         setTableView()
         
         homeVM.loadFavorites { [weak self] in
@@ -43,7 +43,12 @@ class HomeViewController: UIViewController {
         homeVM.saveChangesInCoreData()
     }
     
-    // MARK: Methods    
+    // MARK: Methods
+    private func setNavigationItems() {
+        title = "Home"
+        navigationItem.backButtonTitle = ""
+    }
+    
     private func setTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -53,6 +58,7 @@ class HomeViewController: UIViewController {
     
     private func populateTableView() {
         emptyAnimationView.isHidden = true
+        tableView.isHidden = false
         emptyAnimationView.stop()
         
         homeVM.getAllAnimals { [weak self] (result) in
@@ -110,7 +116,7 @@ class HomeViewController: UIViewController {
     }
 }
 
-// MARK: TableView Data Source
+// MARK: - TableView Data Source
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return homeVM.numberOfRows()
@@ -132,7 +138,7 @@ extension HomeViewController: UITableViewDataSource {
 
 }
 
-// MARK: TableView Delegate
+// MARK: - TableView Delegate
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -148,7 +154,7 @@ extension HomeViewController: UITableViewDelegate {
     
 }
 
-// MARK: Action Delegate Protocol
+// MARK: - Action Delegate Protocol
 extension HomeViewController: ActionDelegateProtocol {
     func addFavoriteTapped(at index: Int, with image: Data) {
         homeVM.addFavorite(at: index, with: image)

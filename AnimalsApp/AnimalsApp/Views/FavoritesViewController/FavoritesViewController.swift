@@ -9,13 +9,16 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
     
+    //MARK: Properties
     var favoritesVM: FavoritesViewModel?
     
+    //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     
+    //MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Favoritos"
+        setNavigationItems()
         favoritesVM = FavoritesViewModel()
         
         setTableView()
@@ -30,6 +33,12 @@ class FavoritesViewController: UIViewController {
         }
     }
     
+    //MARK: Methods
+    private func setNavigationItems() {
+        title = "Favoritos"
+        navigationItem.backButtonTitle = ""
+    }
+    
     private func setTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -38,7 +47,7 @@ class FavoritesViewController: UIViewController {
     }
 }
 
-// MARK: TableView Data Source
+// MARK: - TableView Data Source
 extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favoritesVM?.numberOfRows() ?? 0
@@ -60,7 +69,7 @@ extension FavoritesViewController: UITableViewDataSource {
 
 }
 
-// MARK: TableView Delegate
+// MARK: - TableView Delegate
 extension FavoritesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -76,7 +85,7 @@ extension FavoritesViewController: UITableViewDelegate {
     
 }
 
-// MARK: Action Delegate Protocol
+// MARK: - Action Delegate Protocol
 extension FavoritesViewController: ActionDelegateProtocol {
     func addFavoriteTapped(at index: Int, with image: Data) {
     }

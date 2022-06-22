@@ -9,6 +9,7 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
+    // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -16,6 +17,7 @@ class MainTabBarController: UITabBarController {
         setupTabBar()
     }
 
+    // MARK: Methods
     func setupViewControllers() {
         
         let homeVC = UINavigationController(rootViewController: HomeViewController())
@@ -59,7 +61,7 @@ class MainTabBarController: UITabBarController {
         navController.navigationBar.standardAppearance = appearance
         navController.navigationBar.scrollEdgeAppearance = navController.navigationBar.standardAppearance
         
-//        navigationItem.backButtonTitle = ""
+        navController.navigationBar.tintColor = UIColor.blueTextColor
         
         navController.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2)
         navController.navigationBar.layer.shadowRadius = 1

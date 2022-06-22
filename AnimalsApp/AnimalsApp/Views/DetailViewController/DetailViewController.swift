@@ -25,6 +25,7 @@ class DetailViewController: UIViewController {
         setupDetails()
     }
     
+    // MARK: Methods
     private func setupDetails() {
         guard let animal = animal else { return }
 
