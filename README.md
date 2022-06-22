@@ -16,3 +16,7 @@ Desafio final do Bootcamp iOS da UseMobile. Aplicativo de 4 telas responsável p
 ## Sobre o aplicativo
 
 O aplicativo possui 3 telas principais: Home, Cadastrar e Favoritos, e 1 tela de detalhes, a qual pode ser acessada clicando em qualquer animal.
+
+
+https://user-images.githubusercontent.com/91852898/175084633-dbbd9372-d338-4ac6-82d0-84b5395309bb.MP4
+
