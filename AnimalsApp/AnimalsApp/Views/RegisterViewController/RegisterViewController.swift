@@ -152,6 +152,7 @@ class RegisterViewController: UIViewController {
     }
 }
 
+// MARK: Delegates
 extension RegisterViewController: UIGestureRecognizerDelegate, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == textFieldName {
