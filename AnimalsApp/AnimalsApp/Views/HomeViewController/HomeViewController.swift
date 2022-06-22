@@ -21,8 +21,8 @@ class HomeViewController: UIViewController {
     // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home"
         loadingView.startAnimating()
+        setNavigationItems()
         setTableView()
         
         homeVM.loadFavorites { [weak self] in
@@ -43,7 +43,12 @@ class HomeViewController: UIViewController {
         homeVM.saveChangesInCoreData()
     }
     
-    // MARK: Methods    
+    // MARK: Methods
+    private func setNavigationItems() {
+        title = "Home"
+        navigationItem.backButtonTitle = ""
+    }
+    
     private func setTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -53,6 +58,7 @@ class HomeViewController: UIViewController {
     
     private func populateTableView() {
         emptyAnimationView.isHidden = true
+        tableView.isHidden = false
         emptyAnimationView.stop()
         
         homeVM.getAllAnimals { [weak self] (result) in

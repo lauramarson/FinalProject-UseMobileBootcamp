@@ -19,7 +19,6 @@
 		A458A09E28628B600057BC34 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458A09C28628B600057BC34 /* FavoritesViewController.swift */; };
 		A458A09F28628B600057BC34 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A458A09D28628B600057BC34 /* FavoritesViewController.xib */; };
 		A458A0A0286351670057BC34 /* Pods_AnimalsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1DC7AE05F709A3F0E450DA /* Pods_AnimalsApp.framework */; };
-		A458A0A1286351670057BC34 /* Pods_AnimalsApp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1DC7AE05F709A3F0E450DA /* Pods_AnimalsApp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A463D0172858EBBB00929A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A463D0162858EBBB00929A3C /* AppDelegate.swift */; };
 		A463D0212858EBBB00929A3C /* AnimalsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A463D01F2858EBBB00929A3C /* AnimalsApp.xcdatamodeld */; };
 		A463D0232858EBBD00929A3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A463D0222858EBBD00929A3C /* Assets.xcassets */; };
@@ -65,20 +64,6 @@
 			remoteInfo = AnimalsApp;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		A458A0A2286351670057BC34 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				A458A0A1286351670057BC34 /* Pods_AnimalsApp.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		290D574622CE042567539136 /* Pods_AnimalsAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimalsAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -419,7 +404,6 @@
 				A463D0102858EBBB00929A3C /* Frameworks */,
 				A463D0112858EBBB00929A3C /* Resources */,
 				E3DA1FD4397577CB97B30CF8 /* [CP] Embed Pods Frameworks */,
-				A458A0A2286351670057BC34 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

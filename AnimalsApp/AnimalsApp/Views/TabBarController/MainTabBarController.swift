@@ -59,7 +59,7 @@ class MainTabBarController: UITabBarController {
         navController.navigationBar.standardAppearance = appearance
         navController.navigationBar.scrollEdgeAppearance = navController.navigationBar.standardAppearance
         
-//        navigationItem.backButtonTitle = ""
+        navController.navigationBar.tintColor = UIColor.blueTextColor
         
         navController.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2)
         navController.navigationBar.layer.shadowRadius = 1
